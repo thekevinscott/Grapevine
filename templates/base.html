@@ -112,6 +112,11 @@
           // post made to this page and a reload will trigger a message to the
           // user asking if they want to send data again.
           window.location = window.location;
+          alert('logged in!');
+          var friends = [1,2];
+          $.post('/api/friends/add',{user_id : 123, friends : friends}, function(data){
+            console.log(data);
+          });
         });
 
         FB.Canvas.setAutoGrow();
