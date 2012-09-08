@@ -1,0 +1,69 @@
+#hunt {
+	width: 920px;
+	padding: 20px;
+	margin: 40px auto;
+	background: #EEE;
+	padding-bottom: 60px;
+}
+#hunt .member {
+	
+	background: black;
+	width: 180px;
+	
+	
+	overflow: hidden;
+	float: left;
+	margin-right: 20px;
+	background: #C4CDE0;
+	position: relative;
+	height: 180px;
+}
+#hunt .member img {
+	display: block;
+	max-width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+#listings {
+	
+}
+.listing {
+	background: #ddd url(../images/ddd_noise.png);
+	padding: 40px;
+	position: relative;
+	margin-top: 80px;
+}
+
+.listing .listing-image {
+	width: 200px;
+	float: left;	
+	margin-right: 20px;
+}
+.listing .listing-image img {
+	max-width: 100%;
+}
+
+.listing .listing-content {
+	width: 500px;
+	float: left;
+}
+.listing-container .listing-comments {
+
+}
+.listing-container .listing-comments .listing-comment {
+	background: #ddd url(../images/ddd_noise.png);
+	padding: 20px;
+	position: relative;
+}
+.listing-container .listing-comments .listing-comment p {
+	margin: 0;
+	padding: 0;
+}
+.listing-container .listing-arrow {
+	background: url(../images/ddd_arrow.png);
+	background-size: 30px;
+	width: 30px;
+	height: 30px;
+	margin-left: 40px;
+	display: block;
+}
