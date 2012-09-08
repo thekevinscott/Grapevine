@@ -46,7 +46,7 @@ define([
       		{
       			id : 123,
       			member_id : 1000112313,
-            image: 'static/images/house1.jpeg',
+            image: 'images/house1.jpeg',
             address : '123 Main St',
             price: '$450 per room',
             content : '3 bedroom total. 2 bathrooms',
@@ -72,14 +72,13 @@ define([
           {
             id : 124,
             member_id : '1000012313',
-            image: 'static/images/house2.jpeg',
+            image: 'images/house2.jpeg',
             address : '512 Forbes, 15213',
             price: '$550 per room',
             content : '3 bedrooms, pool in the backyard!',
           }
       	]
       };
-      
 
       compiled_template = _.template( indexTemplate, _this.template_data );
       //log(data);
