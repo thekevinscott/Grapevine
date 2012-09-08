@@ -1,0 +1,253 @@
+#spiderweb {
+	
+	width: 100%;
+	height: 100%;
+	top: 0;
+	z-index: 10000;
+	background: #37133a url(../images/canvas_bg.png) no-repeat 50% 50%;
+}
+.friend-image { margin: -9999px 0 0 -9999px; position: absolute; width: 50px; height: 50px;}
+
+
+
+
+.info-window {
+	display: none;
+	top: 0;
+	left: 0;
+	padding: 10px;
+	font-size: 80%;
+	position: absolute;
+	background: #f2eff2;
+	width: 150px;
+	height: 50px;
+	border-radius: 6px;
+	box-shadow: 0 2px 5px #333;
+	border: 1px solid #999;
+
+	background-image: linear-gradient(bottom, 			rgba(214,225,230,1) 0%, rgba(242,239,242,1) 3%, rgba(242,239,242,1) 97%, rgba(255,255,255,1) 100%);
+	background-image: -o-linear-gradient(bottom, 		rgba(214,225,230,1) 0%, rgba(242,239,242,1) 3%, rgba(242,239,242,1) 97%, rgba(255,255,255,1) 100%);
+	background-image: -moz-linear-gradient(bottom, 		rgba(214,225,230,1) 0%, rgba(242,239,242,1) 3%, rgba(242,239,242,1) 97%, rgba(255,255,255,1) 100%);
+	background-image: -webkit-linear-gradient(bottom, 	rgba(214,225,230,1) 0%, rgba(242,239,242,1) 3%, rgba(242,239,242,1) 97%, rgba(255,255,255,1) 100%);
+	background-image: -ms-linear-gradient(bottom, 		rgba(214,225,230,1) 0%, rgba(242,239,242,1) 3%, rgba(242,239,242,1) 97%, rgba(255,255,255,1) 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, 		rgba(214,225,230,1)),
+		color-stop(0.03, 	rgba(242,239,242,1)),
+		color-stop(0.97, 	rgba(242,239,242,1)),
+		color-stop(1, 		rgba(255,255,255,1))
+	);
+	opacity : 0;
+
+
+}
+.info-window.show {
+	display: block;
+	margin-top: -80px;
+	opacity: 1;
+}
+.info-window h1 {
+	margin: 0;
+	padding: 0;
+}
+.info-window .location {
+	font-size: 120%;
+	font-style: italic;
+	margin-top: 10px;
+}
+
+.info-window img {
+	float: left;
+	margin-right: 10px;
+}
+.info-window .add {
+	background: url(../images/add.png) no-repeat right 0;
+	
+	height: 16px;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	padding-right: 24px;
+	text-decoration: none;
+	color: blue;
+}
+
+#search-field-container {
+	position: absolute;
+	top: 65%;
+	left: 50%;
+	width: 400px;
+	height: 100px;
+	margin-left: -200px;
+	display: none;
+
+}
+#search-field-container form { 
+	z-index: 10001;
+}
+#search-field-container #search-field { 
+	
+	margin: 20px;
+	height: 50px;
+	width: 330px;
+	border: 1px solid #888;
+	border-bottom: 1px solid #666;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px #000;
+	padding: 5px 15px;
+	font-size: 30px;
+	background-image: linear-gradient(bottom, 			rgba(214,225,230,1) 0%, rgba(242,239,242,1) 3%, rgba(242,239,242,1) 97%, rgba(255,255,255,1) 100%);
+	background-image: -o-linear-gradient(bottom, 		rgba(214,225,230,1) 0%, rgba(242,239,242,1) 3%, rgba(242,239,242,1) 97%, rgba(255,255,255,1) 100%);
+	background-image: -moz-linear-gradient(bottom, 		rgba(214,225,230,1) 0%, rgba(242,239,242,1) 3%, rgba(242,239,242,1) 97%, rgba(255,255,255,1) 100%);
+	background-image: -webkit-linear-gradient(bottom, 	rgba(214,225,230,1) 0%, rgba(242,239,242,1) 3%, rgba(242,239,242,1) 97%, rgba(255,255,255,1) 100%);
+	background-image: -ms-linear-gradient(bottom, 		rgba(214,225,230,1) 0%, rgba(242,239,242,1) 3%, rgba(242,239,242,1) 97%, rgba(255,255,255,1) 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, 		rgba(214,225,230,1)),
+		color-stop(0.05, 	rgba(242,239,242,1)),
+		color-stop(0.95, 	rgba(242,239,242,1)),
+		color-stop(1, 		rgba(255,255,255,1))
+	);
+	color: black;
+	text-shadow: 0 1px 0 #FFF;
+}
+#search-field-container #search-field.hint {
+	color: #999;
+	text-shadow: none;
+}
+#search-field-container #search-field:focus { 
+	outline: none;
+	box-shadow: 0 0px 15px #6eb3dd;
+}
+#search-field-container #text_field_p {
+	display: none;
+	position: absolute;
+	top: 0;
+	font-size: 30px;
+	padding: 5px 15px;
+	z-index: 1000;
+	margin-left: 21px;
+	color: #CCC;
+	text-shadow: 0 -1px 0 #000;
+
+}
+
+
+#sliders {
+	border-top: 1px solid black;
+	box-shadow: 0 2px 10px black;
+
+	position: absolute;
+	height: 18%;
+	width: 100%;
+	left: 0;
+	bottom: -18%;
+	color: #CCC;
+	text-shadow: 0 -1px 0 #000;
+
+	background-image: linear-gradient(bottom, 			rgba(15,25,31,1) 0%, rgba(21,35,43,1) 12%, rgba(21,35,43,1) 95%, rgba(45,57,64,1) 100%);
+	background-image: -o-linear-gradient(bottom, 		rgba(15,25,31,1) 0%, rgba(21,35,43,1) 12%, rgba(21,35,43,1) 95%, rgba(45,57,64,1) 100%);
+	background-image: -moz-linear-gradient(bottom, 		rgba(15,25,31,1) 0%, rgba(21,35,43,1) 12%, rgba(21,35,43,1) 95%, rgba(45,57,64,1) 100%);
+	background-image: -webkit-linear-gradient(bottom, 	rgba(15,25,31,1) 0%, rgba(21,35,43,1) 12%, rgba(21,35,43,1) 95%, rgba(45,57,64,1) 100%);
+	background-image: -ms-linear-gradient(bottom, 		rgba(15,25,31,1) 0%, rgba(21,35,43,1) 12%, rgba(21,35,43,1) 95%, rgba(45,57,64,1) 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, 		rgba(15,25,31,1)),
+		color-stop(0.12, 	rgba(21,35,43,1)),
+		color-stop(0.95, 	rgba(21,35,43,1)),
+		color-stop(1, 		rgba(45,57,64,1))
+	);
+
+
+}
+#sliders-inner {
+	padding: 40px;
+	margin: 0 auto;
+	width: 600px;
+}
+.slider-container label {
+	font-size: 18px;
+	text-shadow: 0 -1px 0 #000;
+	margin-bottom: 10px;
+}
+.slider-container .slider {
+	margin-top: 10px;
+	background: #ccc;
+}
+
+.ui-slider-handle {
+	border: 1px solid #555 !important;
+}
+#warning {
+	width: 350px;
+	text-shadow: 0 1px 0 #FFF;
+	padding: 20px;
+	height: 400px;
+	position: relative;
+}
+#warning label {
+	margin-right: 5px;
+}
+#warning .button {
+	float: right;
+	padding: 6px 40px;
+	font-size: 16px;
+
+}
+.fancybox-skin {
+	background: url(../images/eee_noise.png);
+}
+#warning .question {
+	background: url(../images/eee_noise.png);
+	width: 380px;
+
+	position: absolute;
+}
+#group {
+	top: 0;
+	width: 200px;
+	position: fixed;
+	right: -200px;
+	height: 100%;
+
+}
+#group-bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	background: url(../images/black_noise.png);
+	opacity: 0.5;
+}
+#group-content {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+}
+#group-content img {
+	margin: 8px;
+	width: 180px;
+	display: block;
+}
+#group .button {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	padding: 10px 30px;
+	width: 120px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 18px;
+
+	color: white;
+}
