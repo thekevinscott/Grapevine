@@ -42,6 +42,7 @@ define([
           log(new_comment_div.offset());
           log(new_comment_div.offset().top);
           $('body').animate({scrollTop: new_comment_div.offset().top});
+          $(new_comment_div).find('listing-comment p').css({background: 'yellow'}).animate({background: 'inherit'});
         });
       });
 
