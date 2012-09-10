@@ -21,15 +21,18 @@ var Grapevine;
 			help = help_container.find('#help');
 			
 			help_content.html(params.content);
-			if (params.top) {
-				help.css({top : params.top});
-			}
-
+			
 			var help_width = help.width();
 			var help_height = help.height();
+
+			if (params.top) {
+				help.css({top : (params.top + (help_height / 2) )});
+			}
+
+			
 			help.css({width: 0, height: 10}).animate({width: help_width},500);
 			setTimeout(function(){
-				help.animate({height: help_height},300);
+				help.animate({height: help_height, top: params.top},300);
 			},200);
 		};
 		return {
