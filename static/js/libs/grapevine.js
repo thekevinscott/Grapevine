@@ -32,7 +32,7 @@ var Grapevine;
 			
 			help.css({width: 0, height: 10}).animate({width: help_width},500);
 			setTimeout(function(){
-				help.animate({height: help_height, top: params.top},300);
+				help.animate({height: help_height, top: params.top},300,'swing');
 			},200);
 		};
 		return {
