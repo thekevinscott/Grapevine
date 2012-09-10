@@ -87,7 +87,7 @@ define([
       	marginLeft: ((transition_amount/2))+'%'})
       .animate({
       	marginLeft : 0, marginTop : 0, width: '100%', height: '100%', opacity : '1'
-      }, { duration : duration, easing : 'easeOutQuad' , complete : function() {
+      }, { duration : duration, easing : 'easeOut' , complete : function() {
 
         
         $('.slider').slider({
@@ -481,7 +481,7 @@ define([
     				display : 'block', 'top' : top + amount_to_move, 'left' : left
     			}).animate({
     				opacity : 'show', top: top - amount_to_move
-    			},{ duration :time_to_create, easing: 'easeOutQuad'});
+    			},{ duration :time_to_create, easing: 'easeOut'});
 
     			info_window.html('<img width="50" src="http://graph.facebook.com/'+(Math.round(Math.random()*1000000)+100000)+'/picture" /><h1>'+name+'</h1><p class="location">'+getAttributes('location')+'</p><p>Likes long walks on the shore.</p>');
     			
