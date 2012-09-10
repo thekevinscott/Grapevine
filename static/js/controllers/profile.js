@@ -232,16 +232,18 @@ define([
 
     },
     render: function(){
+      log('render1');
       var _this, data, access_token, page_title;
       _this = this;
       page_title = 'profile';
-      
+      log('render2');
 
       
       
 
       var app_id = (window.location.host=='localhost') ? '108916482593932' : '347253068696040';
-
+      log('render3');
+      log(app_id);
       FB.init({
             
             appId      : app_id,
@@ -250,31 +252,39 @@ define([
             cookie     : true, // enable cookies to allow the server to access the session
             xfbml      : true  // parse XFBML
           });
+      log('render4');
       // Load the SDK Asynchronously
      
 
       var timer = setTimeout(function(){
         alert("There was an error. Perhaps the Facebook App ID is incorrect?");
       },2000); 
+      log('render5');
 
       FB.getLoginStatus(function(response){
-        
+        log('render6');
         clearTimeout(timer);
-
+        log('render7');
         if (response.authResponse && response.authResponse.accessToken) {
+          log('render8');
           $('.fb-login-button').remove();
           _this.getProfileDetails(response,function(){
-
+            log('render9');
             _this.el = _this.setupPage(page_title);  
           });
+          log('render10');
           
         } else {
+          log('render11');
 
           _this.el = _this.setupPage(page_title);
           _this.el.html(loginTemplate);
+          log('render12');
           FB.Event.subscribe('auth.login', function(response) {
+            log('render13');
             $('.fb-login-button').remove();
             _this.getProfileDetails(response,function(){
+              log('render14');
               _this.el = _this.setupPage(page_title);  
             });
           });
