@@ -167,7 +167,10 @@ define([
       FB.api('/me', function(data) {
         if (data) {
           if (callback) { callback(); }
-          Grapevine.setHelp({content : 'We\'ve pulled in some of your profile details from Facebook. You can remove anything you don\'t want to appear by clicking the remove button next to each icon. Or, if you want to remove an entire category, click Remove All.', top: 300});
+          setTimeout(function(){
+            Grapevine.setHelp({content : 'We\'ve pulled in some of your profile details from Facebook. You can remove anything you don\'t want to appear by clicking the remove button next to each icon. Or, if you want to remove an entire category, click Remove All.', top: 300});
+          },500);
+          
           if (! data.name) { data.name = ''; }
           _this.user = new User(data);
           _this.user.bind("change",_this.userChange, _this);
