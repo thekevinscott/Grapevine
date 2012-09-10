@@ -78,13 +78,13 @@
 }
 .new-comment-container.visible {
 	display: block;
-	
+
 -webkit-transform: matrix(1,0,-1,1,0,0);
    -moz-transform: matrix(1,0,-1,1,0px,0px);
     -ms-transform: matrix(1,0,-1,1,0,0);
      -o-transform: matrix(1,0,-1,1,0,0);
         transform: matrix(1,0,-1,1,0,0);
-
+        height: 0;
 
 
 }
