@@ -174,6 +174,7 @@ define([
             _: _
           };
           log(_this.template_data);
+          log(_this.template_data.user.get('name'));
           compiled_template = _.template( indexTemplate, _this.template_data );
           _this.el.html(compiled_template);
           _this.el = _this.el.find('#profile');
