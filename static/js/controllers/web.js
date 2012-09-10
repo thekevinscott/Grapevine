@@ -466,7 +466,9 @@ define([
             }
     		var infoWindow = function(point) {
                 log(point);
+                log(point.event);
                 log(point.event.event);
+                log(point.event.event.clientX);
                 point.x = point.event.event.clientX;
                 point.y = point.event.event.clientY;
     			var top, left, info_window, amount_to_move, time_to_create, id;
