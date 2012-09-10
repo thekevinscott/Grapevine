@@ -67,7 +67,9 @@ define([
     	});
     },
     render: function(){
-        if (! Grapevine.getUser()) { window.location.hash = '#'; }
+
+      if (! Grapevine.getUser()) { window.location.hash = '#'; return;}
+      log('web render');
       var _this, data, access_token, duration;
       _this = this;
       duration = 200;
