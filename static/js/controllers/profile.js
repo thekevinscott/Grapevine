@@ -11,7 +11,6 @@ define([
   var _view = Backbone.View.extend({
     el: null,
     user_attributes : null,
-    compiled_template : null,
     template_data : null,
     initialize: function(){
       //this.collection = userModel;
@@ -158,7 +157,7 @@ define([
 
     },
     getProfileDetails : function(response, callback) {
-      var _this, access_token;
+      var _this, access_token, compiled_template;
       
       _this = this;
       access_token = response.authResponse.accessToken;
@@ -174,8 +173,8 @@ define([
             user: _this.user,
             _: _
           };
-          _this.el.compiled_template = _.template( indexTemplate, _this.template_data );
-          _this.el.html(_this.el.compiled_template);
+          compiled_template = _.template( indexTemplate, _this.template_data );
+          _this.el.html(compiled_template);
           _this.el = _this.el.find('#profile');
           _this.user_attributes = _this.el.find('#user-attributes');
           var next_page = _this.el.find('#next-page');
@@ -222,63 +221,55 @@ define([
     render: function(){
       var _this, data, access_token, page_title;
       _this = this;
-      
-      if (_this.el.compiled_template) {
-        alert('youre already logged in');
-        _this.el = _this.setupPage(page_title);  
-      } else {
-        page_title = 'profile';
+      page_title = 'profile';
  
+      
+      // Load the SDK Asynchronously
 
-        
-        // Load the SDK Asynchronously
 
+      FB.getLoginStatus(function(response){
+       //clearTimeout(timer);
+        if (response.authResponse && response.authResponse.accessToken) {
+          $('.fb-login-button').remove();
+          _this.getProfileDetails(response,function(){
+            _this.el = _this.setupPage(page_title);  
+          });
+          
+        } else {
 
-        FB.getLoginStatus(function(response){
-         //clearTimeout(timer);
-          if (response.authResponse && response.authResponse.accessToken) {
+          _this.el = _this.setupPage(page_title);
+          _this.el.html(loginTemplate);
+
+          $('.fb-login-button').click(function(e){
+          
+
+            e.preventDefault();
+            FB.login(function(response) 
+            {
+                if (response.authResponse) 
+                {
+                  
+                    //login success
+                } 
+                else 
+                {
+                    alert('User cancelled login or did not fully authorize.');
+                }
+//            }, {scope: 'email,user_likes,user_about_me,friends_about_me,user_activities,friends_activities,user_groups,friends_groups,user_interests,friends_interests,user_likes,friends_likes,user_location,user_questionsfriends_questions,user_religion_politics,friends_religion_politics,user_subscriptions,friends_subscriptionsuser_work_history,friends_work_history'})
+
+            }, {scope: 'email,user_likes,user_about_me,friends_about_me,user_activities,friends_activities,user_groups,friends_groups,user_interests,friends_interests,user_likes,friends_likes,user_location,user_questions,friends_questions,user_religion_politics,friends_religion_politics,user_subscriptions,friends_subscriptions,user_work_history,friends_work_history'})
+          });
+          FB.Event.subscribe('auth.login', function(response) {
             $('.fb-login-button').remove();
             _this.getProfileDetails(response,function(){
               _this.el = _this.setupPage(page_title);  
             });
-            
-          } else {
+          });
+          //_this.el = _this.el.find('#profile');
 
-            _this.el = _this.setupPage(page_title);
-            _this.el.html(loginTemplate);
-
-            $('.fb-login-button').click(function(e){
-            
-
-              e.preventDefault();
-              FB.login(function(response) 
-              {
-                  if (response.authResponse) 
-                  {
-                    
-                      //login success
-                  } 
-                  else 
-                  {
-                      alert('User cancelled login or did not fully authorize.');
-                  }
-  //            }, {scope: 'email,user_likes,user_about_me,friends_about_me,user_activities,friends_activities,user_groups,friends_groups,user_interests,friends_interests,user_likes,friends_likes,user_location,user_questionsfriends_questions,user_religion_politics,friends_religion_politics,user_subscriptions,friends_subscriptionsuser_work_history,friends_work_history'})
-
-              }, {scope: 'email,user_likes,user_about_me,friends_about_me,user_activities,friends_activities,user_groups,friends_groups,user_interests,friends_interests,user_likes,friends_likes,user_location,user_questions,friends_questions,user_religion_politics,friends_religion_politics,user_subscriptions,friends_subscriptions,user_work_history,friends_work_history'})
-            });
-            FB.Event.subscribe('auth.login', function(response) {
-              $('.fb-login-button').remove();
-              _this.getProfileDetails(response,function(){
-                _this.el = _this.setupPage(page_title);  
-              });
-            });
-            //_this.el = _this.el.find('#profile');
-
-          }
-          
-        });  
-      }
-      
+        }
+        
+      });
     }
   });
   return new _view;
