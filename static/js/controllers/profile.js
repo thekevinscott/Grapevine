@@ -248,7 +248,7 @@ define([
             {
                 if (response.authResponse) 
                 {
-                  alert('success');
+                  
                     //login success
                 } 
                 else 
@@ -256,7 +256,7 @@ define([
                     alert('User cancelled login or did not fully authorize.');
                 }
 
-            }, {scope: 'email,user_likes,user_about_me,friends_about_me,user_activities,friends_activities,user_groups,friends_groups'})
+            }, {scope: 'email,user_likes,user_about_me,friends_about_me,user_activities,friends_activities,user_groups,friends_groups,user_interests,friends_interests,user_likes,friends_likes,user_location,user_questionsfriends_questions,user_religion_politics,friends_religion_politics,user_subscriptions,friends_subscriptionsuser_work_history,friends_work_history'})
           });
           FB.Event.subscribe('auth.login', function(response) {
             $('.fb-login-button').remove();
