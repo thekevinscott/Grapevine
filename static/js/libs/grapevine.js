@@ -10,7 +10,19 @@ var Grapevine;
 		};
 		var request = function(params) {
 			params.url = 'http://grapevyne.herokuapp.com/api/'+params.url;
-			$.ajax(params);
+			if (! params.type) { params.type = 'POST'; }
+			params.cache = false;
+			params.dataType = 'json';
+			var error = (params.error) ? params.error : null;
+			
+			params.error = function(jqXHR, textStatus, errorThrown) {
+				log('There was an error with an ajax request');
+				log(jqXHR);
+				log(textStatus);
+				log(errorThrown);
+				if (error) { error(jqXHR, textStatus, errorThrown); }
+			};
+			return $.ajax(params);
 		};
 		var setHelp = function(params) {
 			if (! help_container || ! help_container.length) {

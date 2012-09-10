@@ -234,7 +234,16 @@ define([
       });
       
       $('#save-profile').click(function(e){
-        alert('save profile');
+        Grapevine.request({
+          url : 'user/save',
+          data : {
+
+          },
+          success : function(data) {
+
+          }
+        });
+        
       });
 
     },
