@@ -234,7 +234,7 @@ define([
             log('det16');
             FB.api('/me/'+field, function(data) {
               log('det17');
-              return;
+              
               if (data && data.data && data.data.length) {
                 log('det18');
                 
@@ -245,6 +245,7 @@ define([
 
                 log(params);
                 log(field);
+                return;
                 _this.user.set(params);
                 log('det20');
               }             
