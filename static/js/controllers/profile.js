@@ -223,28 +223,24 @@ define([
       _this = this;
       page_title = 'profile';
  
-      
+      var app_id = (window.location.host=='localhost') ? '108916482593932' : '347253068696040';
+      FB.init({
+            
+            appId      : app_id,
+            
+            status     : true, // check login status
+            cookie     : true, // enable cookies to allow the server to access the session
+            xfbml      : true  // parse XFBML
+          });
       // Load the SDK Asynchronously
-      $('.fb-login-button').click(function(e){
-        alert('click');
-        e.preventDefault();
-        FB.login(function(response) 
-        {
-            if (response.authResponse) 
-            {
-              alert('success');
-                //login success
-            } 
-            else 
-            {
-                alert('User cancelled login or did not fully authorize.');
-            }
+     
 
-        }, {scope: 'likes'})
-      });
-
+      var timer = setTimeout(function(){
+        alert("There was an error. Perhaps the Facebook App ID is incorrect?");
+      },2000); 
+ 
       FB.getLoginStatus(function(response){
-       //clearTimeout(timer);
+       clearTimeout(timer);
         if (response.authResponse && response.authResponse.accessToken) {
           $('.fb-login-button').remove();
           _this.getProfileDetails(response,function(){
