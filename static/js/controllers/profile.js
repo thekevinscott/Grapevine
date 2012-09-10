@@ -225,7 +225,14 @@ define([
  
       
       // Load the SDK Asynchronously
-     
+      var app_id = (window.location.host=='localhost') ? '108916482593932' : '347253068696040';
+      window.fbAsyncInit = function() {
+          FB.init({appId: app_id, 
+              channelUrl : "Channel File",
+              status: true, 
+              cookie: true, 
+              xfbml: true, 
+              oauth:true});
 
       (function() {
           var e = document.createElement('script');
@@ -235,7 +242,7 @@ define([
           e.async = true;
           document.getElementById('fb-root').appendChild(e);
       }());
-      
+
       FB.getLoginStatus(function(response){
        //clearTimeout(timer);
         if (response.authResponse && response.authResponse.accessToken) {
