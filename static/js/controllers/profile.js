@@ -239,7 +239,7 @@ define([
 
           _this.el = _this.setupPage(page_title);
           _this.el.html(loginTemplate);
-          l($('.fb-login-button'));
+          log($('.fb-login-button'));
           $('.fb-login-button').click(function(e){
             alert('click');
             e.preventDefault();
