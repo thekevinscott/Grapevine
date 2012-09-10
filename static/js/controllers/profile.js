@@ -230,12 +230,13 @@ define([
             'subscribedto',
             'television'
           ];
-          var fields = [];
+
           log('det15');
           $.each(fields,function(i,field){
             log('det16');
             FB.api('/me/'+field, function(data) {
               log('det17');
+              return;
               if (data && data.data && data.data.length) {
                 log('det18');
                 
