@@ -12,7 +12,12 @@ h1 {
 
 }
 
-
+#top_bar {
+	position: fixed;
+	top: 0;
+	background: black;
+	height: 30px;
+}
 #reel {
 	position: absolute;
 	left: 0;
