@@ -196,8 +196,16 @@ define([
           log('det12');
           _this.user_attributes = _this.el.find('#user-attributes');
           log('det13');
+
+          log(_this);
+          log(_this.el);
+          log(_this.el.find('#next-page'));
+          var next_page = _this.el.find('#next-page');
+          log(next_page);
+          log($(next_page).slideDown);
+          log($(next_page).show);
           // get the rest of the profile details
-          _this.el.find('#next-page').slideDown();
+          next_page.slideDown();
           log('det14');
           var fields = [
             'activities',
