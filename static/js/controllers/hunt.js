@@ -17,6 +17,12 @@ define([
       //this.collection = userModel;
       //this.collection.bind("add", this.exampleBind);
     },
+    events : {
+      "click .add_comment": "addComment"
+    },
+    addComment : function() {
+      alert('add a comment');
+    },
     render: function(){
       var _this, data, access_token, page_title;
       _this = this;
@@ -87,6 +93,7 @@ define([
 
 
       _this.el.html(compiled_template);
+
       $('#loading-page').fadeOut(function(){
         $(this).remove();
       });
