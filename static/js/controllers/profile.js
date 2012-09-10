@@ -126,7 +126,7 @@ define([
       if (! _this.user_attributes || ! _this.user_attributes.length) {
         _this.user_attributes = _this.el.find('#user-attributes');
       }
-
+      
       _(user.changedAttributes()).each(function(val,key){
 
         if (-1 != $.inArray(key,[
