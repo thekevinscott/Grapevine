@@ -31,10 +31,17 @@ define([
         e.preventDefault();
         message = $(new_comment).find('textarea').val();
         username = 'Kevin Scott';
-        listing_comments.append('<div class="listing-arrow"></div><div class="listing-comment member-thekevinscott"><p><strong>'+username+': </strong>'+message+'</p></div>');
+        id = 'thekevinscott';
+        comment_id = 4;
+        var new_comment_div = $('<div class="listing-arrow"></div><div id="listing-comment-'+comment_id+'" class="listing-comment member-'+id+'"><p><strong>'+username+': </strong>'+message+'</p></div>');
+        listing_comments.append(new_comment_div);
         $(this).slideUp(function(){
           $(this).remove();
           $(el).slideDown();
+          log(new_comment_div.offset);
+          log(new_comment_div.offset());
+          log(new_comment_div.offset().top);
+          $('body').animate({scrollTop: new_comment_div.offset().top});
         });
       });
 
@@ -74,16 +81,19 @@ define([
             content : '3 bedroom total. 2 bathrooms',
             comments : [
               {
+                id: 1,
                 member_id : 'thekevinscott',
                 member : 'Kevin Scott',
                 content : 'I don\'t like this house'
               },
               {
+                id: 2,
                 member_id : '1000012313',
                 member: 'Beth Anne Katz',
                 content : 'I don\'t like it either'
               },
               {
+                id: 3,
                 member_id : '1000112313',
                 member: 'Chris Ioffreda',
                 content : 'Ditto'
