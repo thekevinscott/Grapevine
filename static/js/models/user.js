@@ -12,10 +12,10 @@ define([
       user = params;
       Grapevine.setUser(user);
       this.bind("change", function(params){
-        log(params);
-        log(params.changedAttributes());
-
-        //Grapevine.setUser(this);
+        
+        user = $.extend(user,params.changedAttributes());
+        log(user);
+        Grapevine.setUser(user);
       });
       
     }
