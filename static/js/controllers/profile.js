@@ -173,7 +173,9 @@ define([
             user: _this.user,
             _: _
           };
+          log('1');
           compiled_template = _.template( indexTemplate, _this.template_data );
+          log('2');
           _this.el.html(compiled_template);
           _this.el = _this.el.find('#profile');
           _this.user_attributes = _this.el.find('#user-attributes');
