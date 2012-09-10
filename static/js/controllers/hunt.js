@@ -34,8 +34,8 @@ define([
         username = 'Kevin Scott';
         id = 'thekevinscott';
         comment_id = 4;
-        var new_comment_div = $('<div class="listing-arrow"></div><div id="listing-comment-'+comment_id+'" class="listing-comment member-'+id+'"><p><strong>'+username+': </strong>'+message+'</p></div>');
-        listing_comments.append(new_comment_div);
+        var new_comment_div = $('<div id="listing-comment-'+comment_id+'" class="listing-comment member-'+id+'"><p><strong>'+username+': </strong>'+message+'</p></div>');
+        listing_comments.append('<div class="listing-arrow"></div>').append(new_comment_div);
         $(this).slideUp(function(){
           $(this).remove();
           $(el).slideDown();
@@ -43,7 +43,8 @@ define([
           log($(new_comment_div));
           log($(new_comment_div).find('.listing-comment'));
           log($(new_comment_div).find('.listing-comment p'));
-          $(new_comment_div).find('.listing-comment p').css({background: 'yellow'}).animate({background: 'inherit'});
+          log($(new_comment_div).find('p'));
+          $(new_comment_div).find('p').css({background: 'yellow'}).animate({background: 'inherit'});
         });
       });
 
