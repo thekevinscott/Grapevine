@@ -26,7 +26,11 @@ var Grapevine;
 			}
 
 			var help_width = help.width();
-			$(help).find('#help').css({width: 0}).animate({width: help_width},500);
+			var help_height = help.height();
+			help.css({width: 0, height: 10}).animate({width: help_width},500);
+			setTimeout(function(){
+				help.animate({height: help_height},300);
+			},200);
 		};
 		return {
 			setUser : setUser,
