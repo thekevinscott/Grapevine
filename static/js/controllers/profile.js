@@ -1,12 +1,12 @@
 // Filename: views/home/main
 define([
-  'jquery',
+  
   'underscore',
   'backbone',
   'models/user',
   'text!templates/profile/login.html',
   'text!templates/profile/index.html'
-], function($, _, Backbone, User, loginTemplate, indexTemplate){
+], function( _, Backbone, User, loginTemplate, indexTemplate){
 
   var _view = Backbone.View.extend({
     el: null,

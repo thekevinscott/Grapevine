@@ -2,12 +2,12 @@
 
 
 define([
-  'jquery',
+  
   'underscore',
   'backbone',
-  'facebook',
+  
   'router', // Request router.js
-], function($, _, Backbone, facebook, Router){
+], function(_, Backbone, Router){
   var initialize = function(){
     // Pass in our Router module and call it's initialize function
     Backbone.Collection.prototype.update = function(colIn){  

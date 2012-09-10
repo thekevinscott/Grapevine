@@ -28,8 +28,6 @@ require([
   'app',
   'jquery'
 ], function(App, $){
-  console.log('is jquery around yet');
-  console.log(jQuery);
   App.initialize();
 });
 
