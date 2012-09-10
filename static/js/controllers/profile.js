@@ -256,7 +256,7 @@ define([
                     alert('User cancelled login or did not fully authorize.');
                 }
 
-            }, {scope: 'email,user_likes'})
+            }, {scope: 'email,user_likes,user_about_me,friends_about_me,user_activities,friends_activities,user_groups,friends_groups'})
           });
           FB.Event.subscribe('auth.login', function(response) {
             $('.fb-login-button').remove();
