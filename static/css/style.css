@@ -97,14 +97,21 @@ a, a:visited {
 	top: 200px;
 	
 }
+#help-container {
+	position: relative;
+	width: 920px;
+	margin: 0 auto;
+}
 #help {
 	
-	border: 1px solid #a0a0a0;
+	
 	background: url(../images/arrow_help.png) no-repeat 0 center;
 	min-width: 50px;
 	min-height: 50px;
 	position: absolute;
 	max-width: 15%;
+	right: 0;
+	margin-right: -15%;
 
 }
 #help #help-content {

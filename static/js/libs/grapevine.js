@@ -14,10 +14,10 @@ var Grapevine;
 		};
 		var setHelp = function(msg) {
 			if (! help || ! help.length) {
-				help = $('<div id="help"><div id="help-content"></div></div>');
+				help = $('<div id="help-container"><div id="help"><div id="help-content"></div></div></div>');
 				$('body').append(help);
 			}
-			
+
 			$(help).find('#help-content').html(msg);
 		};
 		return {
