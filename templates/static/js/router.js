@@ -3,7 +3,7 @@ var log = function(msg){if (1 && window['console']) {console.log(msg); } }
 // Filename: router.js
 define([
   'jquery',
-  'jqueryui',
+  //'jqueryui',
   'fancybox',
   'effects',
   'underscore',
@@ -14,7 +14,7 @@ define([
   'controllers/profile',
   'controllers/web',
   'controllers/hunt'
-], function($, $ui, fancybox, fx, _, Backbone, facebook, paperJS, tweenJS, profileView, webView, huntView){
+], function($, /*$ui*/, fancybox, fx, _, Backbone, facebook, paperJS, tweenJS, profileView, webView, huntView){
   var AppRouter = Backbone.Router.extend({
     routes: {
       // Define some URL routes
