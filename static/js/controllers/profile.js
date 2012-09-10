@@ -242,7 +242,13 @@ define([
 
           $('.fb-login-button').click(function(e){
           
+
             e.preventDefault();
+            FB.login(function(response) {
+              log(response);
+               // handle the response
+             }, {scope: 'email,user_likes'});
+            return;
             FB.login(function(response) 
             {
                 if (response.authResponse) 
