@@ -11,11 +11,9 @@ define([
       var user;
       user = params;
       Grapevine.setUser(user);
-      this.bind("change", function(params, two, anything){
+      this.bind("change", function(params){
         log(params);
         log(params.changedAttributes());
-        log(two);
-        log(anything);
 
         //Grapevine.setUser(this);
       });
