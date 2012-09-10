@@ -396,8 +396,8 @@ define([
     		starting_radius = params.starting_radius || 0.01;
     		looking_stroke_color = params.stroke_color || '#000';
             looking_fill_color = params.fill_color || '#FFF';
-            not_looking_stroke_color = '#111';
-            not_looking_fill_color = '#222';
+            not_looking_stroke_color = '#333';
+            not_looking_fill_color = '#444';
     		stroke_width = params.stroke_width || 1;
     		
 
