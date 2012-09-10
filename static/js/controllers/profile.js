@@ -3,12 +3,10 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'facebook',
-
   'models/user',
   'text!templates/profile/login.html',
   'text!templates/profile/index.html'
-], function($, _, Backbone, facebook, User, loginTemplate, indexTemplate){
+], function($, _, Backbone, User, loginTemplate, indexTemplate){
 
   var _view = Backbone.View.extend({
     el: null,
