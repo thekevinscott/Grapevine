@@ -224,7 +224,7 @@ define([
       _this = this;
       
       if (_this.el.compiled_template) {
-        alert('youre already logged in');
+        //alert('youre already logged in');
         _this.el = _this.setupPage(page_title);  
       } else {
         page_title = 'profile';
