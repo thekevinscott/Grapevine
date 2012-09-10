@@ -18,14 +18,25 @@ define([
       //this.collection.bind("add", this.exampleBind);
     },
     addComment : function(el) {
-      var listing_container, listing, listing_comments, new_comment;
+      var listing_container, listing, listing_comments, new_comment,message,username;
+      $(el).slideUp();
       listing_container = $(el).parents('.listing-container');
       listing = listing_container.find('.listing');
       listing_comments = listing_container.find('.listing-comments');
-      new_comment = $('<div class="new-comment-container"><textarea class="new-comment" name="'+listing_container.attr('id')+'-comment"></textarea></div>');
+      new_comment = $('<div class="new-comment-container"><form><textarea class="new-comment" name="'+listing_container.attr('id')+'-comment"></textarea></form></div>');
       listing.append(new_comment);
       
       $(new_comment).hide().slideDown();
+      $(new_comment).find('form').submit(function(e){
+        e.preventDefault();
+        message = $(new_comment).find('textarea').val();
+        username = 'Kevin Scott';
+        listing_comments.append('<div class="listing-arrow"></div><div class="listing-comment member-thekevinscott"><p><strong>'+username+': </strong>'+message+'</p></div>');
+        $(this).slideUp(function(){
+          $(this).remove();
+          $(el).slideDown();
+        });
+      });
 
     },
     render: function(){
