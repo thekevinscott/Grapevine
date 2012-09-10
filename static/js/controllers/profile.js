@@ -225,7 +225,9 @@ define([
  
       
       // Load the SDK Asynchronously
-      $('.fb-login-button').click(function(){
+      $('.fb-login-button').click(function(e){
+        alert('click');
+        e.preventDefault();
         FB.login(function(response) 
         {
             if (response.authResponse) 
