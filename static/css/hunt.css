@@ -68,12 +68,17 @@
 	display: block;
 }
 .new-comment-container {
-	height: 200px;
+	height: 50px;
+	display: none;
 	-webkit-transition: all 1.3s ease-out;  /* Safari 3.2+, Chrome */
        -moz-transition: all 1.3s ease-out;  /* Firefox 4-15 */
          -o-transition: all 1.3s ease-out;  /* Opera 10.5–12.00 */
             transition: all 1.3s ease-out;  /* Firefox 16+, Opera 12.50+ */
   
+}
+.new-comment-container.visible {
+	display: block;
+	
 -webkit-transform: matrix(1,0,-1,1,0,0);
    -moz-transform: matrix(1,0,-1,1,0px,0px);
     -ms-transform: matrix(1,0,-1,1,0,0);
@@ -82,7 +87,7 @@
 
 
 
-      }
+}
 
       .new-comment-container textarea {
       	height: 100%;

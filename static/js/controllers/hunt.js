@@ -23,7 +23,8 @@ define([
       listing_comments = listing_container.find('.listing-comments');
       new_comment = $('<div class="new-comment-container"><textarea class="new-comment" name="'+listing_container.attr('id')+'-comment"></textarea></div>');
       listing_comments.prepend(new_comment);
-      $(new_comment).hide().slideDown();
+      $(new_comment).addClass('visible');
+      //$(new_comment).hide().slideDown();
 
     },
     render: function(){
