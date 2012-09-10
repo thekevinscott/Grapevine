@@ -109,9 +109,9 @@ a, a:visited {
 	min-width: 50px;
 	min-height: 50px;
 	position: absolute;
-	max-width: 15%;
+	max-width: 30%;
 	right: 0;
-	margin-right: -15%;
+	margin-right: -30%;
 
 }
 #help #help-content {
