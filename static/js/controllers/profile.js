@@ -40,7 +40,7 @@ define([
         var profile_container = $(this).parents('.profile-container');
         log(profile_container.find('ul li'));
         log(profile_container.find('ul li').length);
-        if (! profile_container.find('ul li').length) {
+        if (profile_container.find('ul li').length <= 1) {
           $(profile_container).slideUp(function(){
             $(this).remove();
           });
