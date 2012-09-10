@@ -43,7 +43,10 @@ var Grapevine;
 			},total_help_height_time);
 		};
 		var clearHelp = function() {
-			help_container.hide();
+			if (help_container && help_container.length) {
+				help_container.hide();	
+			}
+			
 		}
 		return {
 			setUser 	: setUser,
