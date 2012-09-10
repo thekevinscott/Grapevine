@@ -69,9 +69,12 @@
 	text-align: right;
 	font-size: 20px;
 }
-
+#next-page .button { 
+	color: white;
+}
 textarea[name=manual-profile] {
 	width: 100%;
 	padding: 5px;
 	font-size: 14px;
+	clear: both;
 }
