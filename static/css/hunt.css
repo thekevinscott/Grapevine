@@ -78,25 +78,25 @@
 
 
 @-webkit-keyframes myanim {
-  0%   { opacity: 0.0; }
-  50%  { opacity: 0.5; }
-  100% { opacity: 1.0; }
+  0%   { height: 50px; }
+  50%  { height: 0; }
+  100% { height: 50px; }
 }
 @-moz-keyframes myanim {
-  0%   { opacity: 0.0; }
-  50%  { opacity: 0.5; }
-  100% { opacity: 1.0; }
+0%   { height: 50px; }
+  50%  { height: 0; }
+  100% { height: 50px; }
 }
 @-o-keyframes myanim {
-  0%   { opacity: 0.0; }
-  50%  { opacity: 0.5; }
-  100% { opacity: 1.0; }
+0%   { height: 50px; }
+  50%  { height: 0; }
+  100% { height: 50px; }
 }
 @keyframes myanim {
-  0%   { opacity: 0.0; }
-  50%  { opacity: 0.5; }
-  100% { opacity: 1.0; }
-}
+0%   { height: 50px; }
+  50%  { height: 0; }
+  100% { height: 50px; }
+}	
 
       .new-comment-container textarea {
       	height: 100%;
