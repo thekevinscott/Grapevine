@@ -8,7 +8,7 @@
 
 require.config({
   paths: {
-    jquery:     '//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min',
+    jquery:     '//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery',
     jqueryui:   '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min',
     facebook:   '//connect.facebook.net/en_US/all',
     underscore: 'libs/underscore/underscore-min',
