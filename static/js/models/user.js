@@ -1,5 +1,4 @@
-define([
-  
+define([  
   'underscore',
   'backbone'
 ], function(_, Backbone){
@@ -13,7 +12,8 @@ define([
       Grapevine.setUser(this);
       this.bind("change", function(){
         Grapevine.setUser(this);
-      });*/
+      });
+      */
     }
   });
 });
