@@ -173,8 +173,7 @@ define([
             user: _this.user,
             _: _
           };
-          log(_this.template_data.user.get('name'));
-          compiled_template = _this.template( indexTemplate, _this.template_data );
+          compiled_template = _.template( indexTemplate, _this.template_data );
           _this.el.html(compiled_template);
           _this.el = _this.el.find('#profile');
           _this.user_attributes = _this.el.find('#user-attributes');
