@@ -168,6 +168,8 @@ define([
       log('det3');
       FB.api('/me', function(data) {
         log('det4');
+        log('data from facebook');
+        log(data);
         if (data) {
           log('det5');
 
