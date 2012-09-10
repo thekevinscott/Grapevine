@@ -223,7 +223,9 @@ define([
         }
       });
       
-      
+      $('#save-profile').click(function(e){
+        alert('save profile');
+      });
 
     },
     render: function(){
