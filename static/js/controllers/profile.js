@@ -242,6 +242,7 @@ define([
                 params[field] = data.data;
                 log('det19');
                 log(data);
+
                 log(params);
                 log(field);
                 _this.user.set(params);
@@ -286,6 +287,7 @@ define([
       log('render5');
 
       FB.getLoginStatus(function(response){
+
         log('render6');
         clearTimeout(timer);
         log('render7');
