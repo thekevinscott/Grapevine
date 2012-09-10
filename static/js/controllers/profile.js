@@ -186,7 +186,7 @@ define([
             _: _
           };
           log('det9');
-
+          log(_this.template_data);
           compiled_template = _.template( indexTemplate, _this.template_data );
           //log(data);
           log('det10');
