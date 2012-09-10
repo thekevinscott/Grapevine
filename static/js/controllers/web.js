@@ -691,7 +691,7 @@ define([
     			creating = true;
 
     			path = new paper.Path.Circle(new paper.Point(starting_x, starting_y), starting_radius);
-    			path.strokeColor     = (looking) ? looking_stroke_color not_looking_stroke_color;
+    			path.strokeColor     = (looking) ? looking_stroke_color : not_looking_stroke_color;
     			path.fillColor       = (looking) ? looking_fill_color : not_looking_fill_color;
     			path.strokeWidth     = stroke_width;
     			groups.cells.addChild(path);
