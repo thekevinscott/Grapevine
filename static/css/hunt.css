@@ -52,12 +52,12 @@
 }
 .listing-container .listing-comments .listing-comment {
 	background: #ddd url(../images/ddd_noise.png);
-	padding: 20px;
+	padding: 10px;
 	position: relative;
 }
 .listing-container .listing-comments .listing-comment p {
 	margin: 0;
-	padding: 0;
+	padding: 10px;
 }
 .listing-container .listing-arrow {
 	background: url(../images/ddd_arrow.png);
