@@ -98,11 +98,14 @@ a, a:visited {
 	
 }
 #help {
-	background: white;
-	padding: 20px;
+	
 	border: 1px solid #a0a0a0;
-	background: #dddddd url(../images/arrow_help.png) no-repeat 0 0;
+	background: url(../images/arrow_help.png) no-repeat 0 0;
 	min-width: 50px;
 	min-height: 50px;
 	position: absolute;
+}
+#help #help-content {
+	background: #dddddd;
+	padding: 20px;
 }
