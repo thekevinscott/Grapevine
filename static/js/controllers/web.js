@@ -6,9 +6,9 @@ define([
   
   
   'models/web',
-  
+  'models/user',
   'text!templates/web/index.html'
-], function( _, Backbone, Web, indexTemplate){
+], function( _, Backbone, Web, User, indexTemplate){
 
   var _view = Backbone.View.extend({
     el: null,
@@ -17,6 +17,7 @@ define([
     initialize: function(){
       //this.collection = userModel;
       //this.collection.bind("add", this.exampleBind);
+      log('what is this user');
       
     },
     setupTextField : function() {

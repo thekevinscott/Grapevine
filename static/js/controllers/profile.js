@@ -152,6 +152,7 @@ define([
           
            
         }
+        user.save();
         
 
       }, this);
