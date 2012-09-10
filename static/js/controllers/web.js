@@ -465,7 +465,8 @@ define([
                 
             }
     		var infoWindow = function(point) {
-                log(point);
+                log(point.y);
+                log(stage.position.y);
     			var top, left, info_window, amount_to_move, time_to_create, id;
     			id = point.id;
     			
