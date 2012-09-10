@@ -126,7 +126,7 @@ define([
       if (! _this.user_attributes || ! _this.user_attributes.length) {
         _this.user_attributes = _this.el.find('#user-attributes');
       }
-      
+
       _(user.changedAttributes()).each(function(val,key){
 
         if (-1 != $.inArray(key,[
@@ -167,6 +167,7 @@ define([
       FB.api('/me', function(data) {
         if (data) {
           if (callback) { callback(); }
+          Grapevine.setHelp('We\'ve pulled in some of your profile details from Facebook. You can remove anything you don\'t want to appear by clicking the remove button next to each icon. Or, if you want to remove an entire category, click Remove All.');
           if (! data.name) { data.name = ''; }
           _this.user = new User(data);
           _this.user.bind("change",_this.userChange, _this);

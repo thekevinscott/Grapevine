@@ -72,6 +72,7 @@
 #next-page .button { 
 	color: white;
 	margin-bottom: 40px;
+	padding: 5px 20px;
 }
 textarea[name=manual-profile] {
 	width: 100%;

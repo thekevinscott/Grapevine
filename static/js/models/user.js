@@ -14,7 +14,7 @@ define([
       this.bind("change", function(params){
         
         user = $.extend(user,params.changedAttributes());
-        log(user);
+        
         Grapevine.setUser(user);
       });
       
