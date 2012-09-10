@@ -73,7 +73,7 @@
      -moz-animation: myanim 5s 2; /* Firefox 5-15 */
        -o-animation: myanim 5s 2; /* Opera 12+ */
           animation: myanim 5s 2; /* Safari 5, Chrome, Firefox 16+ */
-  
+ 	overflow: hidden; 
 }
 
 
