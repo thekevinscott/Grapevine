@@ -8,9 +8,9 @@
 
 require.config({
   paths: {
-    jquery:     '//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery',
-    jqueryui:   '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min',
-    facebook:   '//connect.facebook.net/en_US/all',
+    jquery:     'libs/jquery/jquery.1.7.2',
+    jqueryui:   'libs/jquery/jquery-ui.1.8.23',
+    facebook:   'libs/facebook/facebook-min',
     underscore: 'libs/underscore/underscore-min',
     backbone:   'libs/backbone/backbone-optamd3-min',
     paper:      'libs/paper/paper',
