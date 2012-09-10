@@ -246,12 +246,7 @@ define([
             e.preventDefault();
             FB.login(function(response) 
             {
-                if (response.authResponse) 
-                {
-                  
-                    //login success
-                } 
-                else 
+                if (! response.authResponse) 
                 {
                     alert('User cancelled login or did not fully authorize.');
                 }
