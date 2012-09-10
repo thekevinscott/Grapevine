@@ -167,15 +167,17 @@ define([
       FB.api('/me', function(data) {
         if (data) {
           if (callback) { callback(); }
+          if (! data.name) { data.name = ''; }
           _this.user = new User(data);
           _this.user.bind("change",_this.userChange, _this);
           _this.template_data = {
             user: _this.user,
             _: _
           };
-          log('1');
+          
+
           compiled_template = _.template( indexTemplate, _this.template_data );
-          log('2');
+
           _this.el.html(compiled_template);
           _this.el = _this.el.find('#profile');
           _this.user_attributes = _this.el.find('#user-attributes');
