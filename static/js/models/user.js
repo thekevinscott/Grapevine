@@ -7,7 +7,9 @@ define([
       name : '',
       friends : []
     },
-    initialize : function() {
+    initialize : function(params) {
+      log(params);
+      //Grapevine.setUser();
       /*
       Grapevine.setUser(this);
       this.bind("change", function(){
