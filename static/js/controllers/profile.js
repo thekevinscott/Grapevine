@@ -160,37 +160,45 @@ define([
     },
     getProfileDetails : function(response, callback) {
       var _this, access_token, compiled_template;
+      log('det1');
       _this = this;
       access_token = response.authResponse.accessToken;
-      
+      log('det2');
       //var compiledTemplate = _.template( indexTemplate, this.template_data );
-      
+      log('det3');
       FB.api('/me', function(data) {
+        log('det4');
         if (data) {
-          
+          log('det5');
 
           if (callback) { callback(); }
+          log('det6');
           _this.user = new User(data);
-
+          log('det7');
           _this.user.bind("change",_this.userChange, _this);
+          log('det8');
           
           
-          _this.user.set({test: 123});
           
 
           _this.template_data = {
             user: _this.user,
             _: _
           };
+          log('det9');
+
           compiled_template = _.template( indexTemplate, _this.template_data );
           //log(data);
-
+          log('det10');
           _this.el.html(compiled_template);
-          
+          log('det11');
           _this.el = _this.el.find('#profile');
+          log('det12');
           _this.user_attributes = _this.el.find('#user-attributes');
+          log('det13');
           // get the rest of the profile details
           _this.el.find('#next-page').slideDown();
+          log('det14');
           var fields = [
             'activities',
             'books',
@@ -212,16 +220,19 @@ define([
             'subscribedto',
             'television'
           ];
-          
+          log('det15');
           $.each(fields,function(i,field){
-
+            log('det16');
             FB.api('/me/'+field, function(data) {
+              log('det17');
               if (data && data.data && data.data.length) {
+                log('det18');
                 
                 var params = {};
                 params[field] = data.data;
-
+                log('det19');
                 _this.user.set(params);
+                log('det20');
               }             
             });
           });
