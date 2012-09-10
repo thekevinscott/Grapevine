@@ -39,9 +39,9 @@ define([
         $(this).slideUp(function(){
           $(this).remove();
           $(el).slideDown();
-          $('body').animate({scrollTop: new_comment_div.offset().top});
           listing_comments.append('<div class="listing-arrow"></div>').append(new_comment_div);
-          new_comment_div.slideDown();  
+          $('body').animate({scrollTop: new_comment_div.offset().top});
+          new_comment_div.hide().slideDown();  
         });
       });
 
