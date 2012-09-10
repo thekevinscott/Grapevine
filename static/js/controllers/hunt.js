@@ -25,7 +25,6 @@ define([
       listing_comments.prepend(new_comment);
       $(new_comment).hide().slideDown();
 
-      alert('add a comment');
     },
     render: function(){
       var _this, data, access_token, page_title;
