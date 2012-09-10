@@ -23,7 +23,7 @@ define([
       listing_container = $(el).parents('.listing-container');
       listing = listing_container.find('.listing');
       listing_comments = listing_container.find('.listing-comments');
-      new_comment = $('<div class="new-comment-container"><form><textarea class="new-comment" name="'+listing_container.attr('id')+'-comment"></textarea></form></div>');
+      new_comment = $('<div class="new-comment-container"><form><textarea class="new-comment" name="'+listing_container.attr('id')+'-comment"></textarea><input type="submit" value="Comment" /></form></div>');
       listing.append(new_comment);
       
       $(new_comment).hide().slideDown();
