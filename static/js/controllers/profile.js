@@ -227,12 +227,9 @@ define([
       // Load the SDK Asynchronously
      
 
-      var timer = setTimeout(function(){
-        alert("There was an error. Perhaps the Facebook App ID is incorrect?");
-      },2000); 
- 
+      log(FB);
       FB.getLoginStatus(function(response){
-       clearTimeout(timer);
+       //clearTimeout(timer);
         if (response.authResponse && response.authResponse.accessToken) {
           $('.fb-login-button').remove();
           _this.getProfileDetails(response,function(){
