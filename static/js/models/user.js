@@ -8,14 +8,16 @@ define([
       friends : []
     },
     initialize : function(params) {
-      log(params);
-      //Grapevine.setUser();
-      /*
-      Grapevine.setUser(this);
-      this.bind("change", function(){
-        Grapevine.setUser(this);
+      var user;
+      user = params;
+      Grapevine.setUser(user);
+      this.bind("change", function(params){
+        log(params);
+        log(user);
+        
+        //Grapevine.setUser(this);
       });
-      */
+      
     }
   });
 });
