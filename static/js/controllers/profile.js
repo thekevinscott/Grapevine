@@ -223,15 +223,7 @@ define([
       _this = this;
       page_title = 'profile';
  
-      var app_id = (window.location.host=='localhost') ? '108916482593932' : '347253068696040';
-      FB.init({
-            
-            appId      : app_id,
-            
-            status     : true, // check login status
-            cookie     : true, // enable cookies to allow the server to access the session
-            xfbml      : true  // parse XFBML
-          });
+      
       // Load the SDK Asynchronously
      
 
