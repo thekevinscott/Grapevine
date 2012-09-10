@@ -69,24 +69,33 @@
 }
 .new-comment-container {
 	height: 50px;
-	display: none;
-	-webkit-transition: all 1.3s ease-out;  /* Safari 3.2+, Chrome */
-       -moz-transition: all 1.3s ease-out;  /* Firefox 4-15 */
-         -o-transition: all 1.3s ease-out;  /* Opera 10.5–12.00 */
-            transition: all 1.3s ease-out;  /* Firefox 16+, Opera 12.50+ */
+             -webkit-animation: myanim 5s infinite; /* Safari 5, Chrome */
+     -moz-animation: myanim 5s infinite; /* Firefox 5-15 */
+       -o-animation: myanim 5s infinite; /* Opera 12+ */
+          animation: myanim 5s infinite; /* Safari 5, Chrome, Firefox 16+ */
   
 }
-.new-comment-container.visible {
-	display: block;
-
--webkit-transform: matrix(1,0,-1,1,0,0);
-   -moz-transform: matrix(1,0,-1,1,0px,0px);
-    -ms-transform: matrix(1,0,-1,1,0,0);
-     -o-transform: matrix(1,0,-1,1,0,0);
-        transform: matrix(1,0,-1,1,0,0);
-        height: 0;
 
 
+@-webkit-keyframes myanim {
+  0%   { opacity: 0.0; }
+  50%  { opacity: 0.5; }
+  100% { opacity: 1.0; }
+}
+@-moz-keyframes myanim {
+  0%   { opacity: 0.0; }
+  50%  { opacity: 0.5; }
+  100% { opacity: 1.0; }
+}
+@-o-keyframes myanim {
+  0%   { opacity: 0.0; }
+  50%  { opacity: 0.5; }
+  100% { opacity: 1.0; }
+}
+@keyframes myanim {
+  0%   { opacity: 0.0; }
+  50%  { opacity: 0.5; }
+  100% { opacity: 1.0; }
 }
 
       .new-comment-container textarea {
