@@ -25,7 +25,7 @@ define([
       new_comment = $('<div class="new-comment-container"><textarea class="new-comment" name="'+listing_container.attr('id')+'-comment"></textarea></div>');
       listing.append(new_comment);
       
-      //$(new_comment).hide().slideDown();
+      $(new_comment).hide().slideDown();
 
     },
     render: function(){
