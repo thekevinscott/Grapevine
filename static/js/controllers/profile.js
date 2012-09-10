@@ -247,7 +247,7 @@ define([
             FB.login(function(response) {
               log(response);
                // handle the response
-             }, {scope: 'email,user_likes,books,television,subscribedto,movies,music,friends'});
+             }, {scope: 'email,user_likes,books,television,movies,music'});
             return;
             FB.login(function(response) 
             {
