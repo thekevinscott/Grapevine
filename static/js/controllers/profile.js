@@ -239,9 +239,9 @@ define([
 
           _this.el = _this.setupPage(page_title);
           _this.el.html(loginTemplate);
-          log($('.fb-login-button'));
+
           $('.fb-login-button').click(function(e){
-            alert('click');
+          
             e.preventDefault();
             FB.login(function(response) 
             {
@@ -255,7 +255,7 @@ define([
                     alert('User cancelled login or did not fully authorize.');
                 }
 
-            }, {scope: 'likes'})
+            }, {scope: 'email,user_likes,books,television,subscribedto,movies,music,friends'})
           });
           FB.Event.subscribe('auth.login', function(response) {
             $('.fb-login-button').remove();
