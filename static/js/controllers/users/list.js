@@ -1,10 +1,10 @@
 // Filename: views/projects/list
 define([
-  'jquery',
+  
   'underscore',
   'backbone',
   'text!templates/users/list.html'
-], function($, _, Backbone, userListTemplate){
+], function(_, Backbone, userListTemplate){
   var userListView = Backbone.View.extend({
     el: $("#page"),
     initialize: function(){
