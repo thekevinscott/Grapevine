@@ -225,25 +225,21 @@ define([
  
       
       // Load the SDK Asynchronously
-      var app_id = (window.location.host=='localhost') ? '108916482593932' : '347253068696040';
-      window.fbAsyncInit = function() {
-          FB.init({appId: app_id, 
-              channelUrl : "Channel File",
-              status: true, 
-              cookie: true, 
-              xfbml: true, 
-              oauth:true});
+      $('.fb-login-button').click(function(){
+        FB.login(function(response) 
+        {
+            if (response.authResponse) 
+            {
+              alert('success');
+                //login success
+            } 
+            else 
+            {
+                alert('User cancelled login or did not fully authorize.');
+            }
 
-
-        (function() {
-            var e = document.createElement('script');
-            e.type = 'text/javascript';
-            e.src = document.location.protocol +
-                '//connect.facebook.net/en_US/all.js';
-            e.async = true;
-            document.getElementById('fb-root').appendChild(e);
-        }());
-      }
+        }, {scope: 'likes'})
+      });
 
       FB.getLoginStatus(function(response){
        //clearTimeout(timer);
