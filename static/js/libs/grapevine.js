@@ -30,9 +30,9 @@ var Grapevine;
 			}
 
 			
-			help.css({width: 0, height: 10}).animate({width: help_width},500);
+			help.css({width: 0, height: 10}).animate({width: help_width},{duration: 500,easing: 'easeOutBounce'});
 			setTimeout(function(){
-				help.animate({height: help_height, top: params.top},300,'easeOutBounce');
+				help.animate({height: help_height, top: params.top},{duration: 300,easing: 'easeOutBounce'});
 			},200);
 		};
 		return {
