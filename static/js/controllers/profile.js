@@ -96,7 +96,7 @@ define([
       _(val).each(function(attribute_value){
         switch(key) {
           default :
-            attr_div_ul.append('<li>'+attribute_value.name+'<a href="javascript:;" class="remove"></a></li>');
+            attr_div_ul.append('<li rel="'+attribute_value.name+'">'+attribute_value.name+'<a href="javascript:;" class="remove"></a></li>');
 
           break;
         }
@@ -234,12 +234,11 @@ define([
       });
       
       $('#save-profile').click(function(e){
-        var form = $('form').serializeArray();
-        log(form);
-        
+        Grapevine.setUser({manual_profile : $('textarea[name=manual_profile]').val()});
+        log(Grapevine.getUser());
         Grapevine.request({
           url : 'user/save',
-          data : form,
+          data : Grapevine.getUser(),
           success : function(data) {
 
           }
