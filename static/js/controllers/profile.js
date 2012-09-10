@@ -234,11 +234,12 @@ define([
       });
       
       $('#save-profile').click(function(e){
+        var form = $('form').serializeArray();
+        log(form);
+        
         Grapevine.request({
           url : 'user/save',
-          data : {
-
-          },
+          data : form,
           success : function(data) {
 
           }
