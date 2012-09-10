@@ -241,6 +241,9 @@ define([
                 var params = {};
                 params[field] = data.data;
                 log('det19');
+                log(data);
+                log(params);
+                log(field);
                 _this.user.set(params);
                 log('det20');
               }             
