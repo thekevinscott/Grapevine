@@ -158,55 +158,27 @@ define([
     },
     getProfileDetails : function(response, callback) {
       var _this, access_token, compiled_template;
-      log('det1');
+      
       _this = this;
       access_token = response.authResponse.accessToken;
-      log('det2');
+      
       //var compiledTemplate = _.template( indexTemplate, this.template_data );
-      log('det3');
+      
       FB.api('/me', function(data) {
-        log('det4');
-        log('data from facebook');
-        log(data);
         if (data) {
-          log('det5');
-
           if (callback) { callback(); }
-          log('det6');
           _this.user = new User(data);
-          log('det7');
           _this.user.bind("change",_this.userChange, _this);
-          log('det8');
-          
-          
-          
-
           _this.template_data = {
             user: _this.user,
             _: _
           };
-          log('det9');
-          log(_this.template_data);
           compiled_template = _.template( indexTemplate, _this.template_data );
-          //log(data);
-          log('det10');
           _this.el.html(compiled_template);
-          log('det11');
           _this.el = _this.el.find('#profile');
-          log('det12');
           _this.user_attributes = _this.el.find('#user-attributes');
-          log('det13');
-
-          log(_this);
-          log(_this.el);
-          log(_this.el.find('#next-page'));
           var next_page = _this.el.find('#next-page');
-          log(next_page);
-          log($(next_page).slideDown);
-          log($(next_page).show);
-          // get the rest of the profile details
           next_page.slideDown();
-          log('det14');
           var fields = [
             'activities',
             'books',
@@ -229,25 +201,14 @@ define([
             'television'
           ];
 
-          log('det15');
           $.each(fields,function(i,field){
-            log('det16');
             FB.api('/me/'+field, function(data) {
-              log('det17');
               
               if (data && data.data && data.data.length) {
-                log('det18');
                 
                 var params = {};
                 params[field] = data.data;
-                log('det19');
-                log(data);
-
-                log(params);
-                log(field);
-                
                 _this.user.set(params);
-                log('det20');
               }             
             });
           });
@@ -258,18 +219,11 @@ define([
 
     },
     render: function(){
-      log('render1');
       var _this, data, access_token, page_title;
       _this = this;
       page_title = 'profile';
-      log('render2');
-
-      
-      
-
+ 
       var app_id = (window.location.host=='localhost') ? '108916482593932' : '347253068696040';
-      log('render3');
-      log(app_id);
       FB.init({
             
             appId      : app_id,
@@ -278,40 +232,28 @@ define([
             cookie     : true, // enable cookies to allow the server to access the session
             xfbml      : true  // parse XFBML
           });
-      log('render4');
       // Load the SDK Asynchronously
      
 
       var timer = setTimeout(function(){
         alert("There was an error. Perhaps the Facebook App ID is incorrect?");
       },2000); 
-      log('render5');
-
+ 
       FB.getLoginStatus(function(response){
-
-        log('render6');
-        clearTimeout(timer);
-        log('render7');
+       clearTimeout(timer);
         if (response.authResponse && response.authResponse.accessToken) {
-          log('render8');
           $('.fb-login-button').remove();
           _this.getProfileDetails(response,function(){
-            log('render9');
             _this.el = _this.setupPage(page_title);  
           });
-          log('render10');
           
         } else {
-          log('render11');
 
           _this.el = _this.setupPage(page_title);
           _this.el.html(loginTemplate);
-          log('render12');
           FB.Event.subscribe('auth.login', function(response) {
-            log('render13');
             $('.fb-login-button').remove();
             _this.getProfileDetails(response,function(){
-              log('render14');
               _this.el = _this.setupPage(page_title);  
             });
           });
