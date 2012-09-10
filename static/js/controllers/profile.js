@@ -245,7 +245,7 @@ define([
 
                 log(params);
                 log(field);
-                return;
+                
                 _this.user.set(params);
                 log('det20');
               }             
