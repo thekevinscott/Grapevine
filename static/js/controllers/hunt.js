@@ -17,10 +17,14 @@ define([
       //this.collection = userModel;
       //this.collection.bind("add", this.exampleBind);
     },
-    events : {
-      "click .add_comment": "addComment"
-    },
-    addComment : function() {
+    addComment : function(el) {
+      var listing_container, listing_comments, new_comment;
+      listing_container = $(el).parents('.listing-container');
+      listing_comments = listing_container.find('.listing-comments');
+      new_comment = $('<div class="new-comment-container"><textarea class="new-comment" name="'+listing_container.attr('id')+'-comment"></textarea></div>');
+      listing_comments.prepend(new_comment);
+      $(new_comment).hide().slideDown();
+
       alert('add a comment');
     },
     render: function(){
@@ -93,7 +97,10 @@ define([
 
 
       _this.el.html(compiled_template);
-
+      _this.el.find('.add_comment').click(function(e){
+        e.preventDefault();
+        _this.addComment(this);
+      });
       $('#loading-page').fadeOut(function(){
         $(this).remove();
       });
