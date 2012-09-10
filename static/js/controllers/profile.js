@@ -34,8 +34,9 @@ define([
       // remove clicked box from the document tree
 
       if ($(el)[0].tagName != 'LI' ) { el = $(el).parents('li'); }
+      log('prepare to remove the cell');
       el.css({height: $(el).height(), overflow: 'hidden' }).animate({width: 0, opacity: 0, margin: 0, padding: 0},100, function(data){
-        $(this).remove();
+        log('remove it');
         var profile_container = $(this).parents('.profile-container');
         log(profile_container.find('ul li'));
         log(profile_container.find('ul li').length);
@@ -44,6 +45,8 @@ define([
             $(this).remove();
           });
         }
+        $(this).remove();
+        
       });
       $('.poof').css({
         left: (el_offset.left + xOffset)+ 'px',
