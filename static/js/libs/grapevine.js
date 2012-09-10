@@ -17,6 +17,7 @@ var Grapevine;
 				help_container = $('<div id="help-container"><div id="help"><div id="help-content"></div></div></div>');
 				$('body').append(help_container);
 			}
+			help_container.show();
 			help_content = help_container.find('#help-content');
 			help = help_container.find('#help');
 			
@@ -41,11 +42,15 @@ var Grapevine;
 					{duration: total_help_time-total_help_height_time,easing: 'easeOutBounce'});
 			},total_help_height_time);
 		};
+		var clearHelp = function() {
+			help_container.hide();
+		}
 		return {
-			setUser : setUser,
-			getUser : getUser,
-			request : request,
-			setHelp : setHelp
+			setUser 	: setUser,
+			getUser 	: getUser,
+			request 	: request,
+			setHelp 	: setHelp,
+			clearHelp 	: clearHelp
 		}
 	}();
 })(jQuery);
