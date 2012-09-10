@@ -12,13 +12,16 @@ var Grapevine;
 			params.url = 'http://grapevyne.herokuapp.com/api/'+params.url;
 			$.ajax(params);
 		};
-		var setHelp = function(msg) {
+		var setHelp = function(params) {
 			if (! help || ! help.length) {
 				help = $('<div id="help-container"><div id="help"><div id="help-content"></div></div></div>');
 				$('body').append(help);
 			}
 
-			$(help).find('#help-content').html(msg);
+			$(help).find('#help-content').html(params.content);
+			if (params.top) {
+				$(help).find('#help').css({top : params.top});
+			}
 		};
 		return {
 			setUser : setUser,
