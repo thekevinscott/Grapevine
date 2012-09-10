@@ -67,7 +67,7 @@ define([
     	});
     },
     render: function(){
-
+        if (! Grapevine.getUser()) { window.location.hash = '#'; }
       var _this, data, access_token, duration;
       _this = this;
       duration = 200;

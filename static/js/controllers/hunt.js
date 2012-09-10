@@ -47,6 +47,7 @@ define([
 
     },
     render: function(){
+      if (! Grapevine.getUser()) { window.location.hash = '#'; }
       var _this, data, access_token, page_title;
       _this = this;
       page_title = 'hunt';
