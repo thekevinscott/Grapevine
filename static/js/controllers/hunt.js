@@ -35,16 +35,13 @@ define([
         id = 'thekevinscott';
         comment_id = 4;
         var new_comment_div = $('<div id="listing-comment-'+comment_id+'" class="listing-comment member-'+id+'"><p><strong>'+username+': </strong>'+message+'</p></div>');
-        listing_comments.append('<div class="listing-arrow"></div>').append(new_comment_div);
+        
         $(this).slideUp(function(){
           $(this).remove();
           $(el).slideDown();
           $('body').animate({scrollTop: new_comment_div.offset().top});
-          log($(new_comment_div));
-          log($(new_comment_div).find('.listing-comment'));
-          log($(new_comment_div).find('.listing-comment p'));
-          log($(new_comment_div).find('p'));
-          $(new_comment_div).find('p').css({background: 'yellow'}).animate({background: 'inherit'});
+          listing_comments.append('<div class="listing-arrow"></div>').append(new_comment_div);
+          new_comment_div.slideDown();  
         });
       });
 
