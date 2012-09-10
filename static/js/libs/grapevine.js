@@ -29,10 +29,11 @@ var Grapevine;
 				help.css({top : (params.top + (help_height / 2) )});
 			}
 
-			
-			help.css({width: 0, height: 10}).animate({width: help_width},{duration: 500,easing: 'easeOutBounce'});
+			var total_help_time = 1000;
+
+			help.css({width: 0, height: 10}).animate({width: help_width},{duration: total_help_time,easing: 'easeOutBounce'});
 			setTimeout(function(){
-				help.animate({height: help_height, top: params.top},{duration: 300,easing: 'easeOutBounce'});
+				help.animate({height: help_height, top: params.top},{duration: total_help_time-200,easing: 'easeOutBounce'});
 			},200);
 		};
 		return {
