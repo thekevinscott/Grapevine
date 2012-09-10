@@ -30,9 +30,10 @@ var Grapevine;
 			}
 
 			var total_help_time = 1000;
-			var total_help_height_time = 350;
+			var total_help_height_time = 200;
 
 			help.css({width: 0, height: 10}).animate({width: help_width},{duration: total_help_time,easing: 'easeOutBounce'});
+
 			setTimeout(function(){
 				help.animate({height: help_height, top: params.top},{duration: total_help_time-total_help_height_time,easing: 'easeOutBounce'});
 			},total_help_height_time);
