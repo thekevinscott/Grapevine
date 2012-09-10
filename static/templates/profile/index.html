@@ -1,8 +1,6 @@
 <div id="profile">
 	
-	<div id="next-page">
-		<a href="#web">Continue to Your Web</a>
-	</div>
+	
 	<div id="top-level-data">
 		<img src="http://graph.facebook.com/<%= user.get('id') %>/picture?type=large" alt="<%= user.get("name") %>" />
 		
@@ -12,6 +10,13 @@
 	</div>
 	<div id="user-attributes">
 	</div>
-	<div id="">
+	<div id="user-manual">
+		<label>You can use this space to write a profile about yourself. Optional.</label>
+		<textarea name="manual-profile"></textarea>
 	</div>
+	<br class="clear" />
+	<div id="next-page">
+		<a href="#web" class="button">Continue to Your Web</a>
+	</div>
+	<br class="clear" />
 </div>
