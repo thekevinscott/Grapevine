@@ -230,6 +230,7 @@ define([
             'subscribedto',
             'television'
           ];
+          var fields = [];
           log('det15');
           $.each(fields,function(i,field){
             log('det16');
