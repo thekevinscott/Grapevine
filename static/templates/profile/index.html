@@ -7,6 +7,8 @@
 		<img src="http://graph.facebook.com/<%= user.get('id') %>/picture?type=large" alt="<%= user.get("name") %>" />
 		<% console.log(user) %>
 		<% console.log(user.get) %>
+		<% console.log(user.get()) %>
+		<% console.log(user.get('name')) %>
 		<h1><%= user.get("name") %></h1>
 		<p><%= user.get('location').name %></p>
 		<br class="clear" />
