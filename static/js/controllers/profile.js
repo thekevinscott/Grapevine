@@ -244,11 +244,6 @@ define([
           
 
             e.preventDefault();
-            FB.login(function(response) {
-              log(response);
-               // handle the response
-             }, {scope: 'email,user_likes,books,television,movies,music'});
-            return;
             FB.login(function(response) 
             {
                 if (response.authResponse) 
@@ -261,7 +256,7 @@ define([
                     alert('User cancelled login or did not fully authorize.');
                 }
 
-            }, {scope: 'email,user_likes,books,television,subscribedto,movies,music,friends'})
+            }, {scope: 'email,user_likes'})
           });
           FB.Event.subscribe('auth.login', function(response) {
             $('.fb-login-button').remove();
