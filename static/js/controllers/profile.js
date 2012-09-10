@@ -37,6 +37,8 @@ define([
       el.css({height: $(el).height(), overflow: 'hidden' }).animate({width: 0, opacity: 0, margin: 0, padding: 0},100, function(data){
         $(this).remove();
         var profile_container = $(this).parents('.profile-container');
+        log(profile_container.find('ul li'));
+        log(profile_container.find('ul li').length);
         if (! profile_container.find('ul li').length) {
           $(profile_container).slideUp(function(){
             $(this).remove();

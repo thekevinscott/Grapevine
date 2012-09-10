@@ -30,8 +30,8 @@ var Grapevine;
 				help.css({top : (params.top + (help_height / 2) )});
 			}
 
-			var total_help_time = 1000;
-			var total_help_height_time = 200;
+			var total_help_time = 500;
+			var total_help_height_time = 100;
 
 			log('animate width');
 			help.css({width: 0, height: 10}).animate({width: help_width},{duration: total_help_time});
