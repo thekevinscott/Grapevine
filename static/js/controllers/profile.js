@@ -193,6 +193,20 @@ define([
           compiled_template = _.template( indexTemplate, _this.template_data );
 
           _this.el.html(compiled_template);
+          
+          $('#save-profile').click(function(e){
+            Grapevine.setUser({manual_profile : $('textarea[name=manual_profile]').val()});
+            log(Grapevine.getUser());
+            alert('send it!');
+            Grapevine.request({
+              url : 'user/save',
+              data : Grapevine.getUser(),
+              success : function(data) {
+
+              }
+            });
+            
+          });
           _this.el = _this.el.find('#profile');
           _this.user_attributes = _this.el.find('#user-attributes');
           var next_page = _this.el.find('#next-page');
@@ -233,21 +247,8 @@ define([
         }
       });
       
-      alert('save profile?');
-      log($('#save-profile'));
-      $('#save-profile').click(function(e){
-        Grapevine.setUser({manual_profile : $('textarea[name=manual_profile]').val()});
-        log(Grapevine.getUser());
-        alert('send it!');
-        Grapevine.request({
-          url : 'user/save',
-          data : Grapevine.getUser(),
-          success : function(data) {
-
-          }
-        });
-        
-      });
+      
+      
 
     },
     render: function(){
