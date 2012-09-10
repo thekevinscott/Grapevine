@@ -32,11 +32,13 @@ var Grapevine;
 			var total_help_time = 1000;
 			var total_help_height_time = 200;
 
+			log('animate width');
 			help.css({width: 0, height: 10}).animate({width: help_width},{duration: total_help_time,easing: 'easeOutBounce'});
 
 			setTimeout(function(){
-				help.animate({height: help_height, top: params.top},{duration: total_help_time-total_help_height_time,easing: 'easeOutBounce'});
-			},total_help_height_time);
+				log('begin to animate height');
+				help.stop().animate({height: help_height, top: params.top},{duration: total_help_time-total_help_height_time,easing: 'easeOutBounce'});
+			},10);
 		};
 		return {
 			setUser : setUser,
