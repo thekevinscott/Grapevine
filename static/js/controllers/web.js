@@ -127,46 +127,41 @@ define([
 
     	var friends = [
     				{
-    					id : 1,
-    					name : 'Kevin Scott',
-    					image : 'https://sphotos-a.xx.fbcdn.net/hphotos-ash4/304827_952344262311_105235805_n.jpg',
-    					attributes : {
-    						location: 'Shadyside, Pennsylvania',
-                            smoking: {
-                                value: 0,
-                                importance: 3
-                            },
-                            dog: {
-                                value: 1,
-                                importance: 5
-                            },
-                            questions : [
-                                {
-                                    type: 'smoke',
-                                    label : 'This person does not smoke.',
-                                    question: 'Do you smoke?'
-                                },
-                                {
-                                    type: 'dogs',
-                                    label : 'This person has dogs.',
-                                    question: 'Do you like dogs?'
-                                },
-                                
-                            ]
-    					},
+                        id : 2,
+                        name : 'Molly Shannon',
+                        image : '',
+                        
     					
     					friends : [
     						{
-    							id : 2,
-    							name : 'Molly Shannon',
-    							image : '',
-    							friends : [
-    								{
-    									id : 3,
-    									name: 'Kirsten Wiig',
-    									image: ''
-    								}
-    							]
+                                id : 1,
+                                name : 'Kevin Scott',
+                                image : 'https://sphotos-a.xx.fbcdn.net/hphotos-ash4/304827_952344262311_105235805_n.jpg',
+                                looking : true,
+                                attributes : {
+                                    location: 'Shadyside, Pennsylvania',
+                                    smoking: {
+                                        value: 0,
+                                        importance: 3
+                                    },
+                                    dog: {
+                                        value: 1,
+                                        importance: 5
+                                    },
+                                    questions : [
+                                        {
+                                            type: 'smoke',
+                                            label : 'This person does not smoke.',
+                                            question: 'Do you smoke?'
+                                        },
+                                        {
+                                            type: 'dogs',
+                                            label : 'This person has dogs.',
+                                            question: 'Do you like dogs?'
+                                        },
+                                        
+                                    ]
+                                },
     						},
     						{ 
     							id : 10,
@@ -194,7 +189,8 @@ define([
     								{
     									id: 7,
     									name : 'Barack Obama',
-    									image : ''
+    									image : '',
+                                        looking : true
     								}
     							]
     						}
@@ -351,8 +347,9 @@ define([
 
     	var Cell = function(params) {
     		
-    		var x, y, starting_x, starting_y, target_x, target_y, radius, stroke_color, stroke_width, fill_color; 
-    		var _this, id, name, attributes, lines, connections, children, parent, image; 
+    		var x, y, starting_x, starting_y, target_x, target_y, radius;
+            var stroke_width, looking_stroke_color, not_looking_stroke_color, looking_fill_color, not_looking_fill_color; 
+    		var _this, id, name, attributes, looking, lines, connections, children, parent, image; 
     		var cell_lines, current_radius;
 
     		var path, creating, hovering, shaking, ready;
@@ -361,6 +358,7 @@ define([
 
     		children = params.children;
     		parent = params.parent;
+            looking = params.looking;
     		
 
     		ready = false;
@@ -396,8 +394,10 @@ define([
 
     		radius = params.radius || CELL_RADIUS;
     		starting_radius = params.starting_radius || 0.01;
-    		stroke_color = params.stroke_color || '#000';
-    		fill_color = params.fill_color || '#FFF';
+    		looking_stroke_color = params.stroke_color || '#000';
+            looking_fill_color = params.fill_color || '#FFF';
+            not_looking_stroke_color = '#000';
+            not_looking_fill_color = '#000';
     		stroke_width = params.stroke_width || 1;
     		
 
@@ -691,9 +691,9 @@ define([
     			creating = true;
 
     			path = new paper.Path.Circle(new paper.Point(starting_x, starting_y), starting_radius);
-    			path.strokeColor = stroke_color;
-    			path.fillColor = fill_color;
-    			path.strokeWidth = stroke_width;
+    			path.strokeColor     = (looking) ? looking_stroke_color not_looking_stroke_color;
+    			path.fillColor       = (looking) ? looking_fill_color : not_looking_fill_color;
+    			path.strokeWidth     = stroke_width;
     			groups.cells.addChild(path);
 
     			//path.smooth();
