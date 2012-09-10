@@ -25,6 +25,7 @@ define([
       listing_comments = listing_container.find('.listing-comments');
       new_comment = $('<div class="new-comment-container"><form><textarea class="new-comment" name="'+listing_container.attr('id')+'-comment"></textarea><br class="clear" /><input type="submit" value="Comment" /></form></div>');
       listing.append(new_comment);
+      new_comment.find('textarea').focus();
       
       $(new_comment).hide().slideDown();
       $(new_comment).find('form').submit(function(e){
