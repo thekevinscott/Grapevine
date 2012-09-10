@@ -39,7 +39,8 @@ define([
           $(this).remove();
           $(el).slideDown();
           $('body').animate({scrollTop: new_comment_div.offset().top});
-          $(new_comment_div).find('listing-comment p').css({background: 'yellow'});//.animate({background: 'inherit'});
+          
+          $(new_comment_div).find('.listing-comment p').css({background: 'yellow'});//.animate({background: 'inherit'});
         });
       });
 
