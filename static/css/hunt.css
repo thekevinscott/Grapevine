@@ -69,11 +69,13 @@
 }
 .new-comment-container {
 	height: 50px;
-  -webkit-animation: myanim 2s 1; /* Safari 5, Chrome */
-     -moz-animation: myanim 2s 1; /* Firefox 5-15 */
-       -o-animation: myanim 2s 1; /* Opera 12+ */
-          animation: myanim 2s 1; /* Safari 5, Chrome, Firefox 16+ */
+  -webkit-animation: myanim 1s 1; /* Safari 5, Chrome */
+     -moz-animation: myanim 1s 1; /* Firefox 5-15 */
+       -o-animation: myanim 1s 1; /* Opera 12+ */
+          animation: myanim 1s 1; /* Safari 5, Chrome, Firefox 16+ */
  	overflow: hidden; 
+ 	border: 1px solid #CCC;
+ 	width: 200px;
 }
 
 
@@ -100,4 +102,6 @@
 
       .new-comment-container textarea {
       	height: 100%;
+      	border: none;
+      	width: 100%;
       }
