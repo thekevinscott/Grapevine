@@ -36,6 +36,12 @@ define([
       if ($(el)[0].tagName != 'LI' ) { el = $(el).parents('li'); }
       el.css({height: $(el).height(), overflow: 'hidden' }).animate({width: 0, opacity: 0, margin: 0, padding: 0},100, function(data){
         $(this).remove();
+        var profile_container = $(this).parents('.profile-container');
+        if (! profile_container.find('ul li').length) {
+          $(profile_container).slideUp(function(){
+            $(this).remove();
+          });
+        }
       });
       $('.poof').css({
         left: (el_offset.left + xOffset)+ 'px',
