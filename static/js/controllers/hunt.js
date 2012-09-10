@@ -1,13 +1,13 @@
 // Filename: views/home/main
 define([
-  'jquery',
+
   'underscore',
   'backbone',
-  'facebook',
+
 
   'models/hunt',
   'text!templates/hunt/index.html'
-], function($, _, Backbone, facebook, Hunt, indexTemplate){
+], function( _, Backbone, Hunt, indexTemplate){
 
   var _view = Backbone.View.extend({
     el: null,

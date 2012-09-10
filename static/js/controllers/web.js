@@ -1,14 +1,14 @@
 define([
-  'jquery',
+
   'underscore',
   'backbone',
-  'facebook',
   
-  'tween',
+  
+  
   'models/web',
   
   'text!templates/web/index.html'
-], function($, _, Backbone, facebook, tweenJS, Web, indexTemplate){
+], function( _, Backbone, Web, indexTemplate){
 
   var _view = Backbone.View.extend({
     el: null,
