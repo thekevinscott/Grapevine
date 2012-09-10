@@ -207,7 +207,7 @@ define([
           log($(next_page).slideDown);
           log($(next_page).show);
           // get the rest of the profile details
-          next_page.show();
+          //next_page.show();
           log('det14');
           var fields = [
             'activities',

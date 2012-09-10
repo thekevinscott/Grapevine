@@ -61,7 +61,7 @@
 
 
 #next-page {
-	display: none;
+	/*display: none;*/
 	
 	position: absolute;
 	right: 40px;
