@@ -9,14 +9,11 @@ define([
       friends : []
     },
     initialize : function() {
+      /*
       Grapevine.setUser(this);
       this.bind("change", function(){
         Grapevine.setUser(this);
-      });
-    },
-    promptColor: function() {
-      var cssColor = prompt("Please enter a CSS color:");
-      this.set({color: cssColor});
+      });*/
     }
   });
 });

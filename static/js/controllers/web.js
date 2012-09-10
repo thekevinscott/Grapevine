@@ -17,8 +17,7 @@ define([
     initialize: function(){
       //this.collection = userModel;
       //this.collection.bind("add", this.exampleBind);
-      log('what is this user');
-      
+
     },
     setupTextField : function() {
     	var text_field, form, val, text_field_p;
