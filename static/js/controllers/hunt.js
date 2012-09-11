@@ -74,7 +74,8 @@ define([
       _this.el = _this.setupPage(page_title);
 
       var user = Grapevine.getUser();
-
+      log('here is the user');
+      log(user);
       _this.template_data = {
       	members: [
           { 
