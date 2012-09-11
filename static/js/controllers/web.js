@@ -516,7 +516,7 @@ define([
     			var height = info_window.height();
 
     			var target_width = 300;
-    			var target_height = 200;
+    			var target_height = 100;
                 var margin_top;
                 if (event.event.clientY - target_height < 30) {
                     margin_top = target_height - 30;
@@ -529,7 +529,7 @@ define([
     				marginLeft : -1 * target_width / 2 + 50,
     				marginTop : margin_top
     			},200);
-    			$(info_window).append('<a href="javascript:;" class="add">Add this person</a>');
+    			$(info_window).append('<a href="javascript:;" class="add"><img src="/static/images/add-to-vine.png" /></a>');
                 $(info_window).find('.add').click(function(e){
 
                     var html = $('<div id="warning" />');
