@@ -33,6 +33,7 @@ define([
       $(new_comment).find('form').submit(function(e){
         e.preventDefault();
         message = $(new_comment).find('textarea').val();
+        log(_this.user);
         username = _this.user.name;
         id = _this.user.id;
         comment_id = 4;
@@ -106,13 +107,13 @@ define([
               },
               {
                 id: 2,
-                member_id : '1000012313',
+                member_id : 'bethannekatz',
                 member: 'Beth Anne Katz',
                 content : 'Guys, this is a great deal. I say we jump on it.'
               },
               {
                 id: 3,
-                member_id : '1000112313',
+                member_id : 'cioffreda',
                 member: 'Chris Ioffreda',
                 content : 'Ditto'
               },
