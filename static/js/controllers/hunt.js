@@ -29,14 +29,15 @@ define([
       new_comment = $('<div class="new-comment-container"><form><textarea class="new-comment" name="'+listing_container.attr('id')+'-comment"></textarea><br class="clear" /><input type="submit" value="Comment" /></form></div>');
       listing.append(new_comment);
       new_comment.find('textarea').focus();
+      var user = Grapevine.getUser();
       
       $(new_comment).hide().slideDown();
       $(new_comment).find('form').submit(function(e){
         e.preventDefault();
         message = $(new_comment).find('textarea').val();
         log(_this.user);
-        username = _this.user.name;
-        id = _this.user.id;
+        username = user.name;
+        id = user.id;
         comment_id = 4;
         var new_comment_div = $('<div id="listing-comment-'+comment_id+'" class="listing-comment member-'+id+'"><p><strong>'+username+': </strong>'+message+'</p></div>');
         
@@ -56,7 +57,7 @@ define([
       var rel = listing.attr('rel');
       var user = Grapevine.getUser();
       if (agree) {
-        $(listing).append('<img src="/static/images/everyones-in.png" class="everyones-in" width="185" />');
+        $(listing).append('<img src="/static/images/everyones-in.png" class="everyones-in" width="185" height="36" />');
         $(listing).find('.everyones-in').hide().slideDown();
       } else {
         $(listing).find('.everyones-in').slideUp(function(){
@@ -73,9 +74,7 @@ define([
       page_title = 'hunt';
       _this.el = _this.setupPage(page_title);
 
-      var user = Grapevine.getUser();
-      log('here is the user');
-      log(user);
+      
       _this.template_data = {
       	members: [
           { 
