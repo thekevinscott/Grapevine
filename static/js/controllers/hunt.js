@@ -48,7 +48,7 @@ define([
     },
     vote : function(params) {
       var listing = params.listing;
-      var in = params.in;
+      var agree = params.agree;
       var rel = listing.attr('rel');
       var user = Grapevine.getUser();
     },
@@ -139,10 +139,10 @@ define([
         var rel = listing.attr('rel');
         if (src.split('/').pop() == 'in.png') {
           src = 'in-off.png';
-          _this.vote({in : false, listing : listing});
+          _this.vote({agree : false, listing : listing});
         } else {
           src = 'in.png';
-          _this.vote({in : true, listing : listing});
+          _this.vote({agree : true, listing : listing});
         }
       });
       $('#loading-page').fadeOut(function(){
