@@ -40,7 +40,7 @@
                             {
                                 id : 11,
                                 name : 'Beth Anne Katz',
-                                image : 'http://graph.facebook.com/thekevinscott/photo?type=large',
+                                image : 'http://graph.facebook.com/bethannekatz/photo?type=large',
                                 connections : [10],
                                 looking: true
                             }
@@ -300,7 +300,7 @@ define([
     	DEBUG = true;
     	CELL_CREATE_TIME = 1000;
     	CELL_DELAY_CREATE_TIME = 40;
-    	CELL_DISTANCE = 150;
+    	CELL_DISTANCE = 110;
     	CELL_RADIUS = 7;
     	CELL_RADIUS_SCALE = 1.4;
     	CELL_NOISE = 20;
