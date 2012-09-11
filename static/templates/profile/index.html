@@ -9,7 +9,7 @@
 
 		<h1><%= user.get("name") %></h1>
 		<% log('after'); %>
-		<p><%= user.get('location').name %></p>
+		<p><%= (user.get('location')) ? user.get('location').name : '' %></p>
 		<br class="clear" />
 	</div>
 	<div id="user-attributes">
