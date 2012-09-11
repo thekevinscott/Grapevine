@@ -418,7 +418,7 @@ define([
     	}
 
     	var Cell = function(params) {
-    		log(params);
+    		
     		var x, y, starting_x, starting_y, target_x, target_y, radius;
             var stroke_width, looking_stroke_color, not_looking_stroke_color, looking_fill_color, not_looking_fill_color; 
     		var _this, id, name, attributes, looking, lines, connections, children, parent, image; 
@@ -565,7 +565,7 @@ define([
     				opacity : 'show', top: top - amount_to_move
     			},{ duration :time_to_create/*, easing: 'easeOutQuad'*/});
 
-    			info_window.html('<img width="50" src="http://graph.facebook.com/thekevinscott/picture" /><h1>'+name+'</h1><p class="location">'+getAttributes('location')+'</p>');
+    			info_window.html('<img width="50" src="'+image+'" /><h1>'+name+'</h1><p class="location">'+getAttributes('location')+'</p>');
     			
     			info_window.width(200);
     		};
