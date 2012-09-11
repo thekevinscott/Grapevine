@@ -481,10 +481,10 @@ define([
 
                 log(point.y);
                 log(point.y - info_window.height() - 20);
-                top = point.y + info_window.height() - 20;
+                top = point.y - info_window.height() - 20;
                 if (top <= 30) {
                     log('it gonna go off screen');
-                    top = point.y + info_window.height() + 20;    
+                    top = point.y + (info_window.height()*2) + 20;    
                 }
     			
     			left = point.x - (info_window.width()/2);
