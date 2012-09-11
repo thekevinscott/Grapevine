@@ -10,7 +10,7 @@
                             {
                                 id : 1,
                                 name : 'Kevin Scott',
-                                image : 'http://graph.facebook.com/thekevinscott/photo?type=large',
+                                image : 'http://graph.facebook.com/thekevinscott/picture?type=large',
                                 looking : true,
                                 attributes : {
                                     location: 'Shadyside, Pennsylvania',
@@ -40,7 +40,7 @@
                             {
                                 id : 11,
                                 name : 'Beth Anne Katz',
-                                image : 'http://graph.facebook.com/bethannekatz/photo?type=large',
+                                image : 'http://graph.facebook.com/bethannekatz/picture?type=large',
                                 connections : [10],
                                 looking: true
                             }
@@ -60,7 +60,7 @@
                                     {
                                         id: 7,
                                         name : 'Barack Obama',
-                                        image : 'http://graph.facebook.com/barackobama/photo?type=large',
+                                        image : 'http://graph.facebook.com/barackobama/picture?type=large',
                                         looking : true
                                     }
                                 ]
@@ -75,7 +75,7 @@
                             {
                                 id : 6,
                                 name : 'Chris Ioffreda',
-                                image : 'http://graph.facebook.com/cioffreda/photo?type=large',
+                                image : 'http://graph.facebook.com/cioffreda/picture?type=large',
                                 looking: true
                             }
                         ]
@@ -93,7 +93,7 @@
                             {
                                 id : 1,
                                 name : 'Kevin Scott',
-                                image : 'http://graph.facebook.com/thekevinscott/photo?type=large',
+                                image : 'http://graph.facebook.com/thekevinscott/picture?type=large',
                                 looking : true,
                                 attributes : {
                                     location: 'Shadyside, Pennsylvania',
@@ -123,7 +123,7 @@
                             {
                                 id : 11,
                                 name : 'Beth Anne Katz',
-                                image : 'http://graph.facebook.com/someone/photo?type=large',
+                                image : 'http://graph.facebook.com/someone/picture?type=large',
                                 connections : [10],
                                 looking: true
                             }
@@ -137,7 +137,7 @@
                             {
                                 id : 6,
                                 name : 'Chris Ioffreda',
-                                image : 'http://graph.facebook.com/cioffreda/photo?type=large',
+                                image : 'http://graph.facebook.com/cioffreda/picture?type=large',
                                 looking: true
                             }
                         ]
