@@ -479,10 +479,9 @@ define([
     			amount_to_move = 8;
     			time_to_create = 400;
 
-                log(point.y);
-                log(point.y - info_window.height() - 20);
-                top = point.y - info_window.height() - 20;
-                if (top <= 30) {
+                top = point.y - info_window.height() - 0;
+                log('top: ' + top);
+                if (top <= 80) {
                     log('it gonna go off screen');
                     top = point.y + (info_window.height()*2) + 20;    
                 }
