@@ -957,7 +957,7 @@ define([
     				
     				
     				cell.x = paper.view.center.x + (distance * depth) * Math.cos(angle) + (Math.random()*CELL_NOISE);
-    				cell.y = paper.view.center.y - 200 + (distance * depth) * Math.sin(angle) + (Math.random()*CELL_NOISE);
+    				cell.y = paper.view.center.y - 100 + (distance * depth) * Math.sin(angle) + (Math.random()*CELL_NOISE);
     				cell.radius = radius;
 
     				cell.starting_x = starting_position.x;
@@ -1022,7 +1022,7 @@ define([
     			cell_friends[0] = new Cell({
                     children: friends, 
                     x : center_x, 
-                    y : center_y - 200,
+                    y : center_y - 100,
                     radius: CELL_RADIUS*CELL_RADIUS_SCALE, 
                     fill_color : '#6eb3dd', 
                     id: 0, 
