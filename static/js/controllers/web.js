@@ -1106,7 +1106,7 @@ define([
                     setTimeout(function(){
                         var center_x = paper.view.center.x;
                         var center_y = paper.view.center.y *0.7;
-                        
+                        var user = Grapevine.getUser();
                         
                         cell_friends[0] = new Cell({
                             children: friends_to_use, 
@@ -1115,7 +1115,8 @@ define([
                             radius: CELL_RADIUS*CELL_RADIUS_SCALE, 
                             fill_color : '#6eb3dd', 
                             id: 0, 
-                            name: 'You'
+                            name: 'You',
+                            image : 'http://graph.facebook.com/'+user.id+'/picture?type=large'
                         }); 
                         cells.push(cell_friends[0]);
                         
