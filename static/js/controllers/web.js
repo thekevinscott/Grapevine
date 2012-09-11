@@ -481,7 +481,12 @@ define([
 
     			amount_to_move = 8;
     			time_to_create = 400;
-    			top = point.y - info_window.height() + 20;
+                if (point.y - 50 <= 30) {
+                    top = point.y + info_window.height() - 20;
+                } else {
+                    top = point.y - info_window.height() + 20;    
+                }
+    			
     			left = point.x - (info_window.width()/2);
     			info_window.addClass('show');
     			info_window.css({
@@ -519,7 +524,7 @@ define([
     			var target_height = 100;
                 var margin_top;
                 if (event.event.clientY - target_height < 30) {
-                    margin_top = target_height - 30;
+                    margin_top = target_height - 100;
                 } else {
                     margin_top = -1 * target_height;
                 }
