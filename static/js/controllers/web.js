@@ -565,7 +565,7 @@ define([
     				opacity : 'show', top: top - amount_to_move
     			},{ duration :time_to_create/*, easing: 'easeOutQuad'*/});
 
-    			info_window.html('<img width="50" src="'+image+'" /><h1>'+name+'</h1><p class="location">'+getAttributes('location')+'</p>');
+    			info_window.html('<img class="info-window-profile" width="50" src="'+image+'" /><h1>'+name+'</h1><p class="location">'+getAttributes('location')+'</p>');
     			
     			info_window.width(200);
     		};
