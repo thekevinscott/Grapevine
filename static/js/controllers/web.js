@@ -79,18 +79,19 @@ define([
       _this.el = _this.setupPage(page_title);
 
       var transition_amount = 70;
-
-      _this.el.css({
-      	left : 0, 
-      	opacity : 0, 
-      	width: (100-transition_amount)+'%', 
-      	height: (100-transition_amount)+'%', 
-      	marginTop: ((transition_amount/2))+'%',
-      	marginLeft: ((transition_amount/2))+'%'})
-      .animate({
-      	marginLeft : 0, marginTop : 0, width: '100%', height: '100%', opacity : '1'
-      }, { duration : duration, /*easing : 'easeOutQuad' ,*/ complete : function() {
-
+      log(_this.el);
+      var css = {
+        left : 0, 
+        opacity : 0, 
+        width: (100-transition_amount)+'%', 
+        height: (100-transition_amount)+'%', 
+        marginTop: ((transition_amount/2))+'%',
+        marginLeft: ((transition_amount/2))+'%'};
+        log(css);
+      var animate_params = {marginLeft : 0, marginTop : 0, width: '100%', height: '100%', opacity : '1'};
+      log(animate_params);
+      _this.el.css(css).animate(animate_params, { duration : duration, /*easing : 'easeOutQuad' ,*/ complete : function() {
+        log('all ready');
         
         $('.slider').slider({
           max : 5,
