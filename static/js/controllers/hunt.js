@@ -56,10 +56,10 @@ define([
       var rel = listing.attr('rel');
       var user = Grapevine.getUser();
       if (agree) {
-        $(listing).append('<img src="/static/images/everybodys-in.png" class="everybodys-in" />');
-        $(listing).find('everybodys-in').hide().slideDown();
+        $(listing).append('<img src="/static/images/everyones-in.png" class="everyones-in" />');
+        $(listing).find('everyones-in').hide().slideDown();
       } else {
-        $(listing).find('.everybodys-in').slideUp(function(){
+        $(listing).find('.everyones-in').slideUp(function(){
           $(this).remove();
         })
       }
