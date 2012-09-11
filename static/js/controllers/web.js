@@ -343,7 +343,9 @@ define([
     		
     		line = new paper.Path();
     		line.strokeColor = '#000000';
-
+            if (! cell_a || !cell_b) {
+                return;
+            }
     		cell_a_position = cell_a.getPosition();
     		cell_b_position = cell_b.getPosition();
 
@@ -665,7 +667,10 @@ define([
     			});
     			
     			$.each(all_connections,function(i,connection){
-    				cell_friends[connection].shake({shake : shake, amount : amount, shaker : id});
+                    if (cell_friends[connection]) {
+                        cell_friends[connection].shake({shake : shake, amount : amount, shaker : id});    
+                    }
+    				
     			});
     			
     		}
