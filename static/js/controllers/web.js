@@ -875,9 +875,12 @@ define([
             $('body').css('cursor', 'pointer');
             log(stage);
             stage.position = new paper.Point(stage.position.x + event.delta.x, stage.position.y + event.delta.y);
+            log($('.info-window'));
             $('.info-window').each(function(){
                 var top = $(this).css('top');
                 var left = $(this).css('left');
+                log(top);
+                log(left);
                 $(this).css({top : top + event.delta.y, left : left + event.delta.x});
             })
             //log(event);
