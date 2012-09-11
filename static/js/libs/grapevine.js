@@ -16,8 +16,8 @@ var Grapevine;
 		}
 		var setUser = function(user) {
 			log('set user');
-			
-			this.user = user;
+			if (! this.user) { this.user = {}; }
+			this.user = $.extend(this.user,user);
 			log(this.user);
 		};
 		var getUser = function() {
