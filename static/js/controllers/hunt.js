@@ -13,9 +13,11 @@ define([
     el: null,
     user_attributes : null,
     template_data : null,
+    user : null,
     initialize: function(){
       //this.collection = userModel;
       //this.collection.bind("add", this.exampleBind);
+      _this.user = Grapevine.getUser();
     },
     addComment : function(el) {
       var listing_container, listing, listing_comments, new_comment,message,username;
@@ -31,8 +33,8 @@ define([
       $(new_comment).find('form').submit(function(e){
         e.preventDefault();
         message = $(new_comment).find('textarea').val();
-        username = 'Kevin Scott';
-        id = 'thekevinscott';
+        username = _this.user.name;
+        id = _this.user.id;
         comment_id = 4;
         var new_comment_div = $('<div id="listing-comment-'+comment_id+'" class="listing-comment member-'+id+'"><p><strong>'+username+': </strong>'+message+'</p></div>');
         
@@ -100,13 +102,13 @@ define([
                 id: 1,
                 member_id : 'thekevinscott',
                 member : 'Kevin Scott',
-                content : 'I don\'t like this house'
+                content : 'God I love this house'
               },
               {
                 id: 2,
                 member_id : '1000012313',
                 member: 'Beth Anne Katz',
-                content : 'I don\'t like it either'
+                content : 'Guys, this is a great deal. I say we jump on it.'
               },
               {
                 id: 3,
