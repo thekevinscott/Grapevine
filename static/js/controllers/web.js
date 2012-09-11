@@ -98,13 +98,13 @@ define([
         });
         setTimeout(function(){
             _this.setupPaper();
-        },500);
+        },1000);
         
         setTimeout(function(){
             $('#sliders').animate({bottom: 0});
             $('#search-field-container').fadeIn();
             _this.setupTextField();
-        },1000);
+        },1500);
         
 
       }});
