@@ -1,3 +1,149 @@
+
+        var friends_no_search = [
+                    {
+                        id : 2,
+                        name : 'Molly Shannon',
+                        image : '',
+                        
+                        
+                        friends : [
+                            {
+                                id : 1,
+                                name : 'Kevin Scott',
+                                image : 'http://graph.facebook.com/thekevinscott/photo?type=large',
+                                looking : true,
+                                attributes : {
+                                    location: 'Shadyside, Pennsylvania',
+                                    smoking: {
+                                        value: 0,
+                                        importance: 3
+                                    },
+                                    dog: {
+                                        value: 1,
+                                        importance: 5
+                                    },
+                                    questions : [
+                                        {
+                                            type: 'smoke',
+                                            label : 'This person does not smoke.',
+                                            question: 'Do you smoke?'
+                                        },
+                                        {
+                                            type: 'dogs',
+                                            label : 'This person has dogs.',
+                                            question: 'Do you like dogs?'
+                                        },
+                                        
+                                    ]
+                                },
+                            },
+                            {
+                                id : 11,
+                                name : 'Beth Anne Katz',
+                                image : 'http://graph.facebook.com/thekevinscott/photo?type=large',
+                                connections : [10],
+                                looking: true
+                            }
+                        ]
+                    },
+                    
+                    {
+                        id : 30,
+                        name : 'Rodney Dangerfield',
+                        image : '',
+                        friends : [
+                            {
+                                id : 4,
+                                name : 'Ralph Wiggum',
+                                image : '',
+                                friends : [
+                                    {
+                                        id: 7,
+                                        name : 'Barack Obama',
+                                        image : 'http://graph.facebook.com/barackobama/photo?type=large',
+                                        looking : true
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        id : 5,
+                        name : 'Santa Clause',
+                        image : '',
+                        friends : [
+                            {
+                                id : 6,
+                                name : 'Chris Ioffreda',
+                                image : 'http://graph.facebook.com/cioffreda/photo?type=large',
+                                looking: true
+                            }
+                        ]
+                    }
+                    ];
+
+        var friends_search = [
+                    {
+                        id : 2,
+                        name : 'Molly Shannon',
+                        image : '',
+                        
+                        
+                        friends : [
+                            {
+                                id : 1,
+                                name : 'Kevin Scott',
+                                image : 'http://graph.facebook.com/thekevinscott/photo?type=large',
+                                looking : true,
+                                attributes : {
+                                    location: 'Shadyside, Pennsylvania',
+                                    smoking: {
+                                        value: 0,
+                                        importance: 3
+                                    },
+                                    dog: {
+                                        value: 1,
+                                        importance: 5
+                                    },
+                                    questions : [
+                                        {
+                                            type: 'smoke',
+                                            label : 'This person does not smoke.',
+                                            question: 'Do you smoke?'
+                                        },
+                                        {
+                                            type: 'dogs',
+                                            label : 'This person has dogs.',
+                                            question: 'Do you like dogs?'
+                                        },
+                                        
+                                    ]
+                                },
+                            },
+                            {
+                                id : 11,
+                                name : 'Beth Anne Katz',
+                                image : 'http://graph.facebook.com/someone/photo?type=large',
+                                connections : [10],
+                                looking: true
+                            }
+                        ]
+                    },
+                    {
+                        id : 5,
+                        name : 'Santa Clause',
+                        image : '',
+                        friends : [
+                            {
+                                id : 6,
+                                name : 'Chris Ioffreda',
+                                image : 'http://graph.facebook.com/cioffreda/photo?type=large',
+                                looking: true
+                            }
+                        ]
+                    }
+                    ];
+
 define([
 
   'underscore',
@@ -136,180 +282,6 @@ define([
     		});
     	},1);
 
-    	var friends_no_search = [
-    				{
-                        id : 2,
-                        name : 'Molly Shannon',
-                        image : '',
-                        
-    					
-    					friends : [
-    						{
-                                id : 1,
-                                name : 'Kevin Scott',
-                                image : 'https://sphotos-a.xx.fbcdn.net/hphotos-ash4/304827_952344262311_105235805_n.jpg',
-                                looking : true,
-                                attributes : {
-                                    location: 'Shadyside, Pennsylvania',
-                                    smoking: {
-                                        value: 0,
-                                        importance: 3
-                                    },
-                                    dog: {
-                                        value: 1,
-                                        importance: 5
-                                    },
-                                    questions : [
-                                        {
-                                            type: 'smoke',
-                                            label : 'This person does not smoke.',
-                                            question: 'Do you smoke?'
-                                        },
-                                        {
-                                            type: 'dogs',
-                                            label : 'This person has dogs.',
-                                            question: 'Do you like dogs?'
-                                        },
-                                        
-                                    ]
-                                },
-    						},
-    						{ 
-    							id : 10,
-    							name : 'Horatio',
-    							connections : [11],
-                                looking : true
-    						},
-    						{
-    							id : 11,
-    							name : 'Thomas Jefferson',
-    							connections : [10],
-                                looking: true
-    						}
-    					]
-    				},
-    				
-    				{
-    					id : 30,
-    					name : 'Rodney Dangerfield',
-    					image : '',
-    					friends : [
-    						{
-    							id : 4,
-    							name : 'Ralph Wiggum',
-    							image : '',
-    							friends : [
-    								{
-    									id: 7,
-    									name : 'Barack Obama',
-    									image : '',
-                                        looking : true
-    								}
-    							]
-    						}
-    					]
-    				},
-    				{
-    					id : 5,
-    					name : 'Santa Clause',
-    					image : '',
-    					friends : [
-    						{
-    							id : 6,
-    							name : 'Mickey Mouse',
-    							image : '',
-                                looking: true
-    						}
-    					]
-    				},
-    				{
-    					id : 8,
-    					name : 'Peter Griffin',
-                        looking: true
-
-    				},
-
-    				{
-    					id : 9,
-    					name : 'Thoreau',
-                        looking : true
-    				}
-    				];
-
-        var friends_search = [
-                    {
-                        id : 2,
-                        name : 'Molly Shannon',
-                        image : '',
-                        
-                        
-                        friends : [
-                            {
-                                id : 1,
-                                name : 'Kevin Scott',
-                                image : 'https://sphotos-a.xx.fbcdn.net/hphotos-ash4/304827_952344262311_105235805_n.jpg',
-                                looking : true,
-                                attributes : {
-                                    location: 'Shadyside, Pennsylvania',
-                                    smoking: {
-                                        value: 0,
-                                        importance: 3
-                                    },
-                                    dog: {
-                                        value: 1,
-                                        importance: 5
-                                    },
-                                    questions : [
-                                        {
-                                            type: 'smoke',
-                                            label : 'This person does not smoke.',
-                                            question: 'Do you smoke?'
-                                        },
-                                        {
-                                            type: 'dogs',
-                                            label : 'This person has dogs.',
-                                            question: 'Do you like dogs?'
-                                        },
-                                        
-                                    ]
-                                },
-                            },
-                            { 
-                                id : 10,
-                                name : 'Horatio',
-                                connections : [11],
-                                looking : true
-                            },
-                            {
-                                id : 11,
-                                name : 'Thomas Jefferson',
-                                connections : [10],
-                                looking: true
-                            }
-                        ]
-                    },
-                    
-                    {
-                        id : 30,
-                        name : 'Rodney Dangerfield',
-                        image : '',
-                        friends : [
-                            {
-                                id : 4,
-                                name : 'Ralph Wiggum',
-                                image : '',
-                                friends : [
-                                    {
-                                        id: 7,
-                                        name : 'Barack Obama',
-                                        image : '',
-                                        looking : true
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                    ];
 
     	// defined vars are uppercase
     	// classes start with uppercase letters
