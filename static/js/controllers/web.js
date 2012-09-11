@@ -783,6 +783,8 @@ define([
     			path.onClick = function (event) {
                     log('on click');
                     log(event);
+                    log(event.event);
+                    log(event.event.clientX);
     				var info_window = $('#info-window-'+id);
     				info_window.addClass('remain');
     				expandInfoWindow(info_window);

@@ -193,11 +193,11 @@ define([
           compiled_template = _.template( indexTemplate, _this.template_data );
 
           _this.el.html(compiled_template);
-          
+
           $('#save-profile').click(function(e){
             Grapevine.setUser({manual_profile : $('textarea[name=manual_profile]').val()});
             log(Grapevine.getUser());
-            alert('send it!');
+            
             Grapevine.request({
               url : 'user/save',
               data : Grapevine.getUser(),
