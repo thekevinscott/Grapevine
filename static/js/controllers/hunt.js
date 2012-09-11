@@ -142,10 +142,10 @@ define([
         var listing = $(this).parents('.listing');
         var rel = listing.attr('rel');
         if (src.split('/').pop() == 'in.png') {
-          src = 'in-off.png';
+          src = '/static/images/in-off.png';
           _this.vote({agree : false, listing : listing});
         } else {
-          src = 'in.png';
+          src = '/static/images/in.png';
           _this.vote({agree : true, listing : listing});
         }
         img.attr('src',src);
