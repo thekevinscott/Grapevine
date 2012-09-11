@@ -559,10 +559,11 @@ define([
                                 '+button+'\
                                 <br class="clear" />\
                                 </div>';
-                            html.append(question_html+'<br class="clear" />');
+                            html.append(question_html);
                             question_count++;
 
                         });
+                        html.append('<br class="clear" />');
                         
                         $.fancybox.open( html );
                         $('#warning').find('.button').click(function(){
