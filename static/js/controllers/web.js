@@ -507,17 +507,27 @@ define([
 					$(this).remove();
 				});	
     		};
-    		var expandInfoWindow = function(info_window) {
+    		var expandInfoWindow = function(info_window,event) {
+                log('on click');
+                    log(event);
+                    log(event.event);
+                    log(event.event.clientY);
     			var width = info_window.width();
     			var height = info_window.height();
 
     			var target_width = 300;
     			var target_height = 200;
+                var margin_top;
+                if (event.event.clientY - target_height < 30) {
+                    margin_top = target_height + 30;
+                } else {
+                    margin_top = -1 * target_height;
+                }
     			$(info_window).animate({
     				width: target_width,
     				height: target_height,
     				marginLeft : -1 * target_width / 2 + 50,
-    				marginTop : -1 * target_height,
+    				marginTop : margin_top
     			},200);
     			$(info_window).append('<a href="javascript:;" class="add">Add this person</a>');
                 $(info_window).find('.add').click(function(e){
@@ -781,13 +791,10 @@ define([
     				
     			}
     			path.onClick = function (event) {
-                    log('on click');
-                    log(event);
-                    log(event.event);
-                    log(event.event.clientY);
+                    
     				var info_window = $('#info-window-'+id);
     				info_window.addClass('remain');
-    				expandInfoWindow(info_window);
+    				expandInfoWindow(info_window,event);
     				$('.info-window').each(function(){
     					
     					if ($(this).attr('id') != 'info-window-'+id) {
