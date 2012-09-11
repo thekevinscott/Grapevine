@@ -46,7 +46,9 @@ define([
     		e.preventDefault();
     		val = $(text_field).val();
             if (val) {
-
+                init(friends_search);
+            } else {
+                init(friends_no_search);
             }
             $(text_field).blur();
             $(text_field).animate({opacity: 0, marginTop: 40});
@@ -1101,7 +1103,7 @@ define([
     		
     	}
 
-        var init = function() {
+        var init = function(friends_to_use) {
 
                 /*
                 *       init
@@ -1118,7 +1120,7 @@ define([
                         var center_x = paper.view.center.x;
                         var center_y = paper.view.center.y *0.7;
                         
-                        var friends_to_use = friends_no_search;
+                        
                         cell_friends[0] = new Cell({
                             children: friends_to_use, 
                             x : center_x, 
@@ -1166,7 +1168,7 @@ define([
                     },200);
         };
 
-        init();
+        init(friends_no_search);
 
     		
 
