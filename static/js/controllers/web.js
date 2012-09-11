@@ -780,9 +780,9 @@ define([
     				}
     				
     			}
-    			path.onClick = function () {
-                    
-
+    			path.onClick = function (event) {
+                    log('on click');
+                    log(event);
     				var info_window = $('#info-window-'+id);
     				info_window.addClass('remain');
     				expandInfoWindow(info_window);
