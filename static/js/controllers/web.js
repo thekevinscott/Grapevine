@@ -519,7 +519,7 @@ define([
     			var target_height = 200;
                 var margin_top;
                 if (event.event.clientY - target_height < 30) {
-                    margin_top = target_height + 30;
+                    margin_top = target_height - 30;
                 } else {
                     margin_top = -1 * target_height;
                 }
