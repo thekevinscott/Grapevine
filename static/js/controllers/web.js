@@ -513,10 +513,7 @@ define([
 				});	
     		};
     		var expandInfoWindow = function(info_window,event) {
-                log('on click');
-                    log(event);
-                    log(event.event);
-                    log(event.event.clientY);
+                
     			var width = info_window.width();
     			var height = info_window.height();
 
@@ -798,27 +795,29 @@ define([
     				
     			}
     			path.onClick = function (event) {
-                    log(id);
-    				var info_window = $('#info-window-'+id);
-    				info_window.addClass('remain');
-    				expandInfoWindow(info_window,event);
-    				$('.info-window').each(function(){
-    					
-    					if ($(this).attr('id') != 'info-window-'+id) {
-    						
-    						var this_id = $(this).attr('id').split('-').pop();
-    						log(this_id);
-    						/*
-    						var tween = new TWEEN.Tween( { radius : current_radius, x : x, y : y }).to( { radius : radius, x : target_x, y : target_y }, CELL_CREATE_TIME/2 )
-    						.easing( TWEEN.Easing.Elastic.Out ).onUpdate( function () {update({path : path, radius : this.radius, x : this.x, y : this.y}); }).start();
-    						$('body').css('cursor', 'inherit');
-    						hovering = false;
-    						shakeTheWeb({ shake : false });*/
+                    if (id!=0) {
+                        var info_window = $('#info-window-'+id);
+                        info_window.addClass('remain');
+                        expandInfoWindow(info_window,event);
+                        $('.info-window').each(function(){
+                            
+                            if ($(this).attr('id') != 'info-window-'+id) {
+                                
+                                var this_id = $(this).attr('id').split('-').pop();
+                                log(this_id);
+                                /*
+                                var tween = new TWEEN.Tween( { radius : current_radius, x : x, y : y }).to( { radius : radius, x : target_x, y : target_y }, CELL_CREATE_TIME/2 )
+                                .easing( TWEEN.Easing.Elastic.Out ).onUpdate( function () {update({path : path, radius : this.radius, x : this.x, y : this.y}); }).start();
+                                $('body').css('cursor', 'inherit');
+                                hovering = false;
+                                shakeTheWeb({ shake : false });*/
 
-    						clearInfoWindow(this_id);
-    					}
-    				});
-    				//infoWindow();
+                                clearInfoWindow(this_id);
+                            }
+                        });
+                        //infoWindow();
+                    }
+    				
     	        }
 
     					
