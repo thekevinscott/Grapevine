@@ -794,9 +794,7 @@ define([
     			
     			if (connections && connections.length) {
     				$.each(connections,function(i,connection){
-                        log('add line');
-                        log(id);
-                        log(connection);
+                        
     					addLine([id, connection]);
 
     	    			
