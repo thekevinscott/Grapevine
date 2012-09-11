@@ -64,8 +64,12 @@
 	margin-right: 10px;
 }
 .info-window .add {
-	padding-right: 24px;
+	
 	float: right;
+}
+.info-window .add img {
+	padding-right: 0;
+	margin-right: 0;
 }
 
 #search-field-container {
