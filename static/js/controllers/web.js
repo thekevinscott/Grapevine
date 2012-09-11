@@ -879,9 +879,8 @@ define([
             $('.info-window').each(function(){
                 var top = $(this).css('top');
                 var left = $(this).css('left');
-                log(top);
-                log(left);
-                $(this).css({top : top + event.delta.y, left : left + event.delta.x});
+                
+                $(this).css({top : (top + event.delta.y) + 'px', left : (left + event.delta.x) + 'px'});
             })
             //log(event);
         };
