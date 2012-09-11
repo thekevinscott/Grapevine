@@ -119,3 +119,20 @@ a, a:visited {
 	padding: 20px;
 	margin-left: 36px;
 }
+#loading-div {
+	z-index: 1000000;
+	position: absolute;
+	top: 0;
+	background: url(/images/static/black_opacity.png);
+	left: 0;
+	width: 100%;
+	height: 100%;
+	
+}
+#loading-div img {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -110px;
+	margin-top: -110px;
+}

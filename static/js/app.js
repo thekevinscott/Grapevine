@@ -42,6 +42,7 @@ define([
   Backbone.View.prototype.setupPage = function(page_title) {
     var el;
     Grapevine.clearHelp();
+    Grapevine.stopLoading();
     
     if (! $('#page-'+page_title).length ) {
     

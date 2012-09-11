@@ -197,7 +197,7 @@ define([
           $('#save-profile').click(function(e){
             Grapevine.setUser({manual_profile : $('textarea[name=manual_profile]').val()});
             log(Grapevine.getUser());
-            
+            Grapevine.loading();
             /*
             Grapevine.request({
               url : 'user/save',
