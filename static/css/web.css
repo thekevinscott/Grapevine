@@ -65,7 +65,7 @@
 }
 .info-window .add {
 	padding-right: 24px;
-	
+	float: right;
 }
 
 #search-field-container {

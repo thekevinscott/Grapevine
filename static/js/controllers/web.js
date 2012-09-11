@@ -524,7 +524,7 @@ define([
     			var target_height = 100;
                 var margin_top;
                 if (event.event.clientY - target_height < 30) {
-                    margin_top = target_height - 100;
+                    margin_top = target_height - 70;
                 } else {
                     margin_top = -1 * target_height;
                 }
@@ -534,7 +534,7 @@ define([
     				marginLeft : -1 * target_width / 2 + 50,
     				marginTop : margin_top
     			},200);
-    			$(info_window).append('<a href="javascript:;" class="add"><img src="/static/images/add-to-vine.png" width="185" /></a>');
+    			$(info_window).append('<a href="javascript:;" class="add"><img src="/static/images/add-to-vine.png" width="185" /></a><br class="clear" />');
                 $(info_window).find('.add').click(function(e){
 
                     var html = $('<div id="warning" />');
