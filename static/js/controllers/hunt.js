@@ -153,6 +153,9 @@ define([
       $('#loading-page').fadeOut(function(){
         $(this).remove();
       });
+      setTimeout(function(){
+            Grapevine.setHelp({content : 'These users are currently fake; in the future these will be the folks you selected on the last screen.', top: 150});
+          },500);
       
     }
   });

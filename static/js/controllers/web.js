@@ -191,11 +191,13 @@ define([
     	$(form).submit(function(e){
     		e.preventDefault();
     		val = $(text_field).val();
+            /*
             if (val) {
                 init(friends_search);
             } else {
                 init(friends_no_search);
             }
+            */
             $(text_field).blur();
             $(text_field).animate({opacity: 0, marginTop: 40});
             $(text_field_p).html(val);
@@ -510,6 +512,7 @@ define([
                 log(group_window);
                 if (! group_window) {
                     group_window = $('#group');
+                    
                 }
                 var info_window = $('#info-window-'+id);
                 var group_content = $('#group-content');
