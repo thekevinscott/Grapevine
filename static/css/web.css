@@ -12,6 +12,7 @@
 
 
 .info-window {
+	overflow: hidden;
 	display: none;
 	top: 0;
 	left: 0;
