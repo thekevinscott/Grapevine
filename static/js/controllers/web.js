@@ -494,7 +494,7 @@ define([
     				opacity : 'show', top: top - amount_to_move
     			},{ duration :time_to_create/*, easing: 'easeOutQuad'*/});
 
-    			info_window.html('<img width="50" src="http://graph.facebook.com/'+(Math.round(Math.random()*1000000)+100000)+'/picture" /><h1>'+name+'</h1><p class="location">'+getAttributes('location')+'</p><p>Likes long walks on the shore.</p>');
+    			info_window.html('<img width="50" src="http://graph.facebook.com/'+(Math.round(Math.random()*1000000)+100000)+'/picture" /><h1>'+name+'</h1><p class="location">'+getAttributes('location')+'</p>');
     			
     			info_window.width(200);
     		};
