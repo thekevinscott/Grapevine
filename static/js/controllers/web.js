@@ -92,17 +92,20 @@ define([
       log(animate_params);
       _this.el.css(css).animate(animate_params, { duration : duration, /*easing : 'easeOutQuad' ,*/ complete : function() {
         log('all ready');
-        
         $('.slider').slider({
           max : 5,
           min : 1
         });
         setTimeout(function(){
+            _this.setupPaper();
+        },500);
+        
+        setTimeout(function(){
             $('#sliders').animate({bottom: 0});
             $('#search-field-container').fadeIn();
             _this.setupTextField();
         },1000);
-        _this.setupPaper();
+        
 
       }});
       //$('#reel').append(_this.el);
