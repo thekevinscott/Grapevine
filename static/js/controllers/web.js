@@ -45,6 +45,9 @@ define([
     	$(form).submit(function(e){
     		e.preventDefault();
     		val = $(text_field).val();
+            if (val) {
+
+            }
             $(text_field).blur();
             $(text_field).animate({opacity: 0, marginTop: 40});
             $(text_field_p).html(val);
@@ -131,7 +134,7 @@ define([
     		});
     	},1);
 
-    	var friends = [
+    	var friends_no_search = [
     				{
                         id : 2,
                         name : 'Molly Shannon',
@@ -172,12 +175,14 @@ define([
     						{ 
     							id : 10,
     							name : 'Horatio',
-    							connections : [11]
+    							connections : [11],
+                                looking : true
     						},
     						{
     							id : 11,
     							name : 'Thomas Jefferson',
-    							connections : [10]
+    							connections : [10],
+                                looking: true
     						}
     					]
     				},
@@ -210,21 +215,100 @@ define([
     						{
     							id : 6,
     							name : 'Mickey Mouse',
-    							image : ''
+    							image : '',
+                                looking: true
     						}
     					]
     				},
     				{
     					id : 8,
     					name : 'Peter Griffin',
+                        looking: true
 
     				},
 
     				{
     					id : 9,
-    					name : 'Thoreau'
+    					name : 'Thoreau',
+                        looking : true
     				}
     				];
+
+        var friends_search = [
+                    {
+                        id : 2,
+                        name : 'Molly Shannon',
+                        image : '',
+                        
+                        
+                        friends : [
+                            {
+                                id : 1,
+                                name : 'Kevin Scott',
+                                image : 'https://sphotos-a.xx.fbcdn.net/hphotos-ash4/304827_952344262311_105235805_n.jpg',
+                                looking : true,
+                                attributes : {
+                                    location: 'Shadyside, Pennsylvania',
+                                    smoking: {
+                                        value: 0,
+                                        importance: 3
+                                    },
+                                    dog: {
+                                        value: 1,
+                                        importance: 5
+                                    },
+                                    questions : [
+                                        {
+                                            type: 'smoke',
+                                            label : 'This person does not smoke.',
+                                            question: 'Do you smoke?'
+                                        },
+                                        {
+                                            type: 'dogs',
+                                            label : 'This person has dogs.',
+                                            question: 'Do you like dogs?'
+                                        },
+                                        
+                                    ]
+                                },
+                            },
+                            { 
+                                id : 10,
+                                name : 'Horatio',
+                                connections : [11],
+                                looking : true
+                            },
+                            {
+                                id : 11,
+                                name : 'Thomas Jefferson',
+                                connections : [10],
+                                looking: true
+                            }
+                        ]
+                    },
+                    
+                    {
+                        id : 30,
+                        name : 'Rodney Dangerfield',
+                        image : '',
+                        friends : [
+                            {
+                                id : 4,
+                                name : 'Ralph Wiggum',
+                                image : '',
+                                friends : [
+                                    {
+                                        id: 7,
+                                        name : 'Barack Obama',
+                                        image : '',
+                                        looking : true
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                    ];
+
     	// defined vars are uppercase
     	// classes start with uppercase letters
     	// variables have underscores
@@ -1017,67 +1101,72 @@ define([
     		
     	}
 
+        var init = function() {
 
-    	/*
-    	* 		init
-    	*/ 
+                /*
+                *       init
+                */ 
 
-    		setInterval(function(){
-    			TWEEN.update();
-    		},20);
-
-
-    		// run
-
-    		setTimeout(function(){
-                var center_x = paper.view.center.x;
-                var center_y = paper.view.center.y *0.7;
-    			
-
-    			cell_friends[0] = new Cell({
-                    children: friends, 
-                    x : center_x, 
-                    y : center_y - 100,
-                    radius: CELL_RADIUS*CELL_RADIUS_SCALE, 
-                    fill_color : '#6eb3dd', 
-                    id: 0, 
-                    name: 'You'
-                });	
-    			cells.push(cell_friends[0]);
-    			createCells({
-                    parent : 0, 
-                    friends : friends, 
-                    initial_angle : INITIAL_ANGLE_OFFSET, 
-                    starting_position : {
-                        x : center_x, 
-                        y : center_y,
-                    }
-                });
-
-    			
-    			var copy_queued_cells = [];
-    			$.each(queued_cells,function(i,queue){
-    				queue.sort(function() {return 0.5 - Math.random()}) //Array elements now scrambled	
-    				$.each(queue, function(j,cell) {
-    					copy_queued_cells.push(cell);
-    				});
-    			});
-    			copy_queued_cells.reverse();
-    			$.each(copy_queued_cells,function(i,cell){
-    				var cell_id = cell.id;
-    				cell = new Cell(cell);
-
-    				cells.push(cell);
-    				cell_friends[cell_id] = cell;
-    			});
-    			
-
-    			
-
-    			
+                    setInterval(function(){
+                        TWEEN.update();
+                    },20);
 
 
-    		},200);
+                    // run
+
+                    setTimeout(function(){
+                        var center_x = paper.view.center.x;
+                        var center_y = paper.view.center.y *0.7;
+                        
+
+                        cell_friends[0] = new Cell({
+                            children: friends, 
+                            x : center_x, 
+                            y : center_y - 100,
+                            radius: CELL_RADIUS*CELL_RADIUS_SCALE, 
+                            fill_color : '#6eb3dd', 
+                            id: 0, 
+                            name: 'You'
+                        }); 
+                        cells.push(cell_friends[0]);
+                        var friends_to_use = friends_no_search;
+                        createCells({
+                            parent : 0, 
+                            friends : friends_to_use, 
+                            initial_angle : INITIAL_ANGLE_OFFSET, 
+                            starting_position : {
+                                x : center_x, 
+                                y : center_y,
+                            }
+                        });
+
+                        
+                        var copy_queued_cells = [];
+                        $.each(queued_cells,function(i,queue){
+                            queue.sort(function() {return 0.5 - Math.random()}) //Array elements now scrambled  
+                            $.each(queue, function(j,cell) {
+                                copy_queued_cells.push(cell);
+                            });
+                        });
+                        copy_queued_cells.reverse();
+                        $.each(copy_queued_cells,function(i,cell){
+                            var cell_id = cell.id;
+                            cell = new Cell(cell);
+
+                            cells.push(cell);
+                            cell_friends[cell_id] = cell;
+                        });
+                        
+
+                        
+
+                        
+
+
+                    },200);
+        };
+
+        init();
 
     		
 
