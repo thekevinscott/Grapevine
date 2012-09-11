@@ -15,9 +15,14 @@ var Grapevine;
 			}
 		}
 		var setUser = function(user) {
+			log('set user');
+			
 			this.user = user;
+			log(this.user);
 		};
 		var getUser = function() {
+			log('get user');
+			log(this.user);
 			return (this.user) ? this.user : null;
 		};
 		var request = function(params) {
