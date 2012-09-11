@@ -57,7 +57,7 @@ define([
       var user = Grapevine.getUser();
       if (agree) {
         $(listing).append('<img src="/static/images/everyones-in.png" class="everyones-in" width="185" />');
-        $(listing).find('everyones-in').hide().slideDown();
+        $(listing).find('.everyones-in').hide().slideDown();
       } else {
         $(listing).find('.everyones-in').slideUp(function(){
           $(this).remove();
