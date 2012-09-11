@@ -46,6 +46,12 @@ define([
       });
 
     },
+    vote : function(params) {
+      var listing = params.listing;
+      var in = params.in;
+      var rel = listing.attr('rel');
+      var user = Grapevine.getUser();
+    },
     render: function(){
       
       if (! Grapevine.getUser()) { window.location.hash = '#'; return;}
@@ -125,6 +131,19 @@ define([
       _this.el.find('.add_comment').click(function(e){
         e.preventDefault();
         _this.addComment(this);
+      });
+      _this.el.find('.in').click(function(e){
+        var img = $(this).find('img');
+        var src = img.attr('src');
+        var listing = $(this).parents('.listing');
+        var rel = listing.attr('rel');
+        if (src.split('/').pop() == 'in.png') {
+          src = 'in-off.png';
+          _this.vote({in : false, listing : listing});
+        } else {
+          src = 'in.png';
+          _this.vote({in : true, listing : listing});
+        }
       });
       $('#loading-page').fadeOut(function(){
         $(this).remove();
