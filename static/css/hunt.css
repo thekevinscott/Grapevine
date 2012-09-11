@@ -78,3 +78,6 @@
 .new-comment-container input[type=submit] {
 	clear: both;
 }
+.in {
+	float: right;
+}

@@ -24,6 +24,7 @@
 		<% _.each(listings, function(listing){ %>
 		<div id="listing-<%= listing.id %>" class="listing-container">
 			<div class="listing member-<%= listing.member_id %>">
+				<a href="javascript:;" class="in"><img src="/static/images/in.png" width="25" /></a>
 				<div class="listing-image"><img src="<%= listing.image %>" /></div>
 				<div class="listing-content">
 					<h2><%= listing.address %></h2>
