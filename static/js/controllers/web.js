@@ -784,7 +784,7 @@ define([
                     log('on click');
                     log(event);
                     log(event.event);
-                    log(event.event.clientX);
+                    log(event.event.clientY);
     				var info_window = $('#info-window-'+id);
     				info_window.addClass('remain');
     				expandInfoWindow(info_window);
