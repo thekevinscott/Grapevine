@@ -143,13 +143,12 @@ define([
         var rel = listing.attr('rel');
         if (src.split('/').pop() == 'in.png') {
           src = 'in-off.png';
-          log('turn it off');
           _this.vote({agree : false, listing : listing});
         } else {
-          log('turn it on');
           src = 'in.png';
           _this.vote({agree : true, listing : listing});
         }
+        img.attr('src',src);
       });
       $('#loading-page').fadeOut(function(){
         $(this).remove();
