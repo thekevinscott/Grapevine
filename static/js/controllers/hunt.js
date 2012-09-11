@@ -77,12 +77,12 @@ define([
       		},
       		{ 
       			name : 'Beth Anne Katz',
-      			id : '1000012313',
+      			id : 'bethannekatz',
       			color: '#D9FF00'
       		},
       		{ 
       			name : 'Chris Ioffreda',
-      			id : '1000112313',
+      			id : 'cioffreda',
       			color: '#9C24FF'
       		},
 
