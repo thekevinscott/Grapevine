@@ -1076,7 +1076,7 @@ define([
     	}
 
         var init = function(friends_to_use) {
-
+            objects = [];
                 /*
                 *       init
                 */ 
