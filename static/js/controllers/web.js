@@ -1118,9 +1118,9 @@ define([
                         var center_x = paper.view.center.x;
                         var center_y = paper.view.center.y *0.7;
                         
-
+                        var friends_to_use = friends_no_search;
                         cell_friends[0] = new Cell({
-                            children: friends, 
+                            children: friends_to_use, 
                             x : center_x, 
                             y : center_y - 100,
                             radius: CELL_RADIUS*CELL_RADIUS_SCALE, 
@@ -1129,7 +1129,7 @@ define([
                             name: 'You'
                         }); 
                         cells.push(cell_friends[0]);
-                        var friends_to_use = friends_no_search;
+                        
                         createCells({
                             parent : 0, 
                             friends : friends_to_use, 
