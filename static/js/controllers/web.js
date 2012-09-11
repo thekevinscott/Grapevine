@@ -407,6 +407,7 @@ define([
     			cells.sort();
     			var key = cells[0]+'_'+cells[1];
     			if (! lines[key]) {
+
     				lines[key] = new Line(cells) ;
     			}
     		}
@@ -785,6 +786,9 @@ define([
     			
     			if (connections && connections.length) {
     				$.each(connections,function(i,connection){
+                        log('add line');
+                        log(id);
+                        log(connection);
     					addLine([id, connection]);
 
     	    			
