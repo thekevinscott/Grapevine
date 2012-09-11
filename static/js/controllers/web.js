@@ -467,10 +467,7 @@ define([
                 
             }
     		var infoWindow = function(point) {
-                log(point);
-                log(point.event);
-                log(point.event.event);
-                log(point.event.event.clientX);
+                
                 point.x = point.event.event.clientX;
                 point.y = point.event.event.clientY;
     			var top, left, info_window, amount_to_move, time_to_create, id;
@@ -481,10 +478,13 @@ define([
 
     			amount_to_move = 8;
     			time_to_create = 400;
-                if (point.y - 50 <= 30) {
-                    top = point.y + info_window.height() - 20;
-                } else {
-                    top = point.y - info_window.height() + 20;    
+
+                log(point.y);
+                log(point.y - info_window.height() - 20);
+                top = point.y + info_window.height() - 20;
+                if (top <= 30) {
+                    log('it gonna go off screen');
+                    top = point.y + info_window.height() + 20;    
                 }
     			
     			left = point.x - (info_window.width()/2);
