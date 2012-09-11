@@ -769,7 +769,10 @@ define([
     					var random_y = y;
     					var tween = new TWEEN.Tween( { radius : current_radius, x : x, y : y }).to( { radius : radius*CELL_RADIUS_SCALE, x : random_x, y : random_y }, CELL_CREATE_TIME/2 )
     					.easing( TWEEN.Easing.Elastic.Out ).onUpdate( function () {update({path : path, radius : this.radius, x : this.x, y : this.y}); }).start();
-    					$('body').css('cursor', 'pointer');
+                        if (id!= 0) {
+                            $('body').css('cursor', 'pointer');    
+                        }
+    					
     					hovering = true;
     					shakeTheWeb({shake : true});
     				}
