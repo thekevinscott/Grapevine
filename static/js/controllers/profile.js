@@ -198,13 +198,14 @@ define([
             Grapevine.setUser({manual_profile : $('textarea[name=manual_profile]').val()});
             log(Grapevine.getUser());
             
+            /*
             Grapevine.request({
               url : 'user/save',
               data : Grapevine.getUser(),
               success : function(data) {
 
               }
-            });
+            });*/
             
           });
           _this.el = _this.el.find('#profile');
