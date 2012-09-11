@@ -551,9 +551,9 @@ define([
     			time_to_create = 400;
 
                 top = point.y - info_window.height() + 20;
-                log('top: ' + top);
+                
                 if (top <= 90) {
-                    log('it gonna go off screen');
+                
                     top = point.y + (info_window.height()*2) + 20;    
                 }
     			
@@ -1107,7 +1107,8 @@ define([
                         var center_x = paper.view.center.x;
                         var center_y = paper.view.center.y *0.7;
                         var user = Grapevine.getUser();
-                        
+                        log('what is user');
+                        log(user);
                         cell_friends[0] = new Cell({
                             children: friends_to_use, 
                             x : center_x, 
