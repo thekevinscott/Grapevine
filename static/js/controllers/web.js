@@ -873,12 +873,12 @@ define([
     	}
         paper.tool.onMouseDrag = function(event) {
             $('body').css('cursor', 'pointer');
-            log(stage);
+            
             stage.position = new paper.Point(stage.position.x + event.delta.x, stage.position.y + event.delta.y);
-            log($('.info-window'));
+            
             $('.info-window').each(function(){
-                var top = $(this).css('top');
-                var left = $(this).css('left');
+                var top = parseInt($(this).css('top'));
+                var left = parseInt($(this).css('left'));
                 var new_css = {top : (top + event.delta.y) + 'px', left : (left + event.delta.x) + 'px'};
                 log(new_css);
                 $(this).css(new_css);
