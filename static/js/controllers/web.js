@@ -330,8 +330,11 @@ define([
     	}
 
     	var Line = function(cells) {
-    		var line, cell_a, cell_b, cell_a_position, cell_b_position;
 
+    		var line, cell_a, cell_b, cell_a_position, cell_b_position;
+            log(cell_friends);
+            log(cells);
+            
     		cell_a = cell_friends[cells.shift()];
     		cell_b = cell_friends[cells.shift()];
 
