@@ -17,10 +17,11 @@ define([
     initialize: function(){
       //this.collection = userModel;
       //this.collection.bind("add", this.exampleBind);
-      _this.user = Grapevine.getUser();
+      this.user = Grapevine.getUser();
     },
     addComment : function(el) {
-      var listing_container, listing, listing_comments, new_comment,message,username;
+      var listing_container, listing, listing_comments, new_comment,message,username,_this;
+      _this = this;
       $(el).slideUp();
       listing_container = $(el).parents('.listing-container');
       listing = listing_container.find('.listing');
