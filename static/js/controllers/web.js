@@ -759,6 +759,7 @@ define([
     		
     			
     			path.onMouseEnter = function(event) {
+                    log(id);
     				var info_window = $('#info-window-'+id);
     				if (! info_window.length) {
     					infoWindow({ id : id, x: x, y : y, event: event});
@@ -796,7 +797,7 @@ define([
     				
     			}
     			path.onClick = function (event) {
-                    
+                    log(id);
     				var info_window = $('#info-window-'+id);
     				info_window.addClass('remain');
     				expandInfoWindow(info_window,event);
