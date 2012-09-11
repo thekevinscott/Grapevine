@@ -4,7 +4,7 @@ var Grapevine;
 		var user, help_container, help, help_content, loading_div;
 		var loading  = function() {
 			if (! loading_div || ! loading_div.length) {
-				loading_div = $('<div id="loading-div"><img src="/images/static/loader_large_against_black.gif" width="220" /></div>');
+				loading_div = $('<div id="loading-div"><img src="/static/images/loader_large_against_black.gif" width="220" /></div>');
 				$('body').append(loading_div);
 			}
 			loading_div.fadeIn();
