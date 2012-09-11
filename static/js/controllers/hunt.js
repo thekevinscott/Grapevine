@@ -61,8 +61,15 @@ define([
       page_title = 'hunt';
       _this.el = _this.setupPage(page_title);
 
+      var user = Grapevine.getUser();
+
       _this.template_data = {
       	members: [
+          { 
+            name : user.name,
+            id : user.id,
+            color: '#0918FF'
+          },
       		{ 
       			name : 'Kevin Scott',
       			id : 'thekevinscott',
