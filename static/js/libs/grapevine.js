@@ -78,7 +78,8 @@ var Grapevine;
 			request 	: request,
 			setHelp 	: setHelp,
 			clearHelp 	: clearHelp,
-			loading 	: loading
+			loading 	: loading,
+			stopLoading	: stopLoading
 		}
 	}();
 })(jQuery);
