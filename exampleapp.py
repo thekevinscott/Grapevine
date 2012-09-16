@@ -10,7 +10,7 @@ import hashlib
 from base64 import urlsafe_b64decode, urlsafe_b64encode
 
 import requests
-from flask import Flask, request, redirect, render_template, url_for
+from flask import Flask, request, redirect, render_template, url_for, json
 
 FB_APP_ID = os.environ.get('FACEBOOK_APP_ID')
 requests = requests.session()
@@ -214,7 +214,7 @@ def close():
 
 @app.route('/api/user/save', methods=['GET', 'POST'])
 def get_save():
-     return Flask.jsonify(username='hello')
+     return flask.jsonify(username='hello')
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
