@@ -1,0 +1,14 @@
+<div id="profile">
+	
+	<div id="next-page">
+		<a href="#web">Continue to Your Web</a>
+	</div>
+	<div id="top-level-data">
+		<img src="http://graph.facebook.com/<%= user.get('id') %>/picture?type=large" alt="<%= user.get("name") %>" />
+		<h1><%= user.get("name") %></h1>
+		<p><% location = user.get('location') %><%= (location) ? location.name : '' %></p>
+		<br class="clear" />
+	</div>
+	<div id="user-attributes">
+	</div>
+</div>

@@ -1,0 +1,94 @@
+body,html {
+	margin: 0; 
+	padding: 0; 
+	background: #37133a url(../images/purple_noise.png);
+	width: 100%;
+	height: 100%;
+	highlight: none;
+}
+h1 {
+	font-family: 'Vollkorn', 'Lucida Grande';
+	font-weight: normal;
+
+}
+
+
+#reel {
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin: 0;
+	min-height: 100%;
+	min-width: 100%;
+}
+.page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	top: 0;
+	left: 0;
+	border-radius: 10px;
+
+
+}
+
+#loading-page {
+	color: white;
+	padding-top: 50px;
+}
+#page-profile {
+	left: 0;
+}
+#page-web {
+	left: 100%;
+}
+
+a, a:visited {
+	color: black;
+}
+
+.poof {
+	background: transparent url(../images/poof.png) no-repeat 0 0;
+	background-size:32px 128px;
+	cursor: pointer;
+	display: none;
+	height: 26px;
+	position: absolute;
+	width: 32px;
+}
+
+
+.button {
+	border-radius: 10px;
+	background: #351138 url(../images/purple_noise.png);
+	box-shadow: 0 2px 5px #000;
+	padding: 5px;
+	color: white;
+	text-shadow: none;
+	text-decoration: none;
+}
+.button.disabled {
+	color: #666;
+}
+.loading-large {
+	background: url(../images/loader_large.gif) no-repeat;
+	width: 110px;
+	height: 110px;
+	background-size: 110px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -55px;
+	margin-top: -55px;
+}
+.fb-login-container {
+	position: relative;
+	width: 920px;
+	margin: 0 auto;
+}
+.fb-login-button {
+	position: absolute;
+	top: 200px;
+	
+}

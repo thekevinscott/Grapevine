@@ -1,0 +1,50 @@
+<style type="text/css">
+
+ 
+
+	<% _.each(members, function(member){ %>
+		#members .member-<%= member.id %> {border-bottom: 20px solid <%= member.color %>; }
+		#listings .member-<%= member.id %> {border-left: 10px solid <%= member.color %>; }
+	<% }); %>
+	
+</style>
+<div id="hunt">
+	<div id="members">
+
+		<% _.each(members, function(member){ %>
+		
+		<div id="member-<%= member.name %>" class="member member-<%= member.id %>">
+			<img src="http://graph.facebook.com/<%= member.id %>/picture?type=large" />
+		</div>
+		<% }); %>
+		<br class="clear" />
+		
+	</div>
+	<div id="listings">
+		<% _.each(listings, function(listing){ %>
+		<div id="listing-<%= listing.id %>" class="listing-container">
+			<div class="listing member-<%= listing.member_id %>">
+				<div class="listing-image"><img src="<%= listing.image %>" /></div>
+				<div class="listing-content">
+					<h2><%= listing.address %></h2>
+					<p><%= listing.price %></p>
+					<p><%= listing.content %></p>
+				</div>
+				
+
+				<br class="clear" />
+			</div>
+			
+			<div class="listing-comments">
+				<% _.each(listing.comments, function(comment) { %>
+				<div class="listing-arrow"></div>
+				<div class="listing-comment member-<%= comment.member_id %>">
+					<p><strong><%= comment.member %>: </strong><%= comment.content %></p>
+				</div>
+				<% }); %>
+			</div>
+		</div>
+		<% }); %>
+	</div>
+
+</div>
