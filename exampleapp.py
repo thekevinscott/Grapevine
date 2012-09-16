@@ -214,7 +214,7 @@ def close():
 
 @app.route('/api/user/save', methods=['GET', 'POST'])
 def get_save():
-     return Flask.jsonify(username='hello')
+     return json.dumps(['foo', {'bar': ('baz', None, 1.0, 2)}])
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
