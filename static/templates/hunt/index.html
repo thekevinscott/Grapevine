@@ -23,13 +23,16 @@
 	<div id="listings">
 		<% _.each(listings, function(listing){ %>
 		<div id="listing-<%= listing.id %>" class="listing-container">
-			<div class="listing member-<%= listing.member_id %>">
+			<div class="listing member-<%= listing.member_id %>" rel="<%= listing.id %>">
+				<a href="javascript:;" class="in"><img src="/static/images/in-off.png" width="55" /></a>
 				<div class="listing-image"><img src="<%= listing.image %>" /></div>
 				<div class="listing-content">
 					<h2><%= listing.address %></h2>
 					<p><%= listing.price %></p>
 					<p><%= listing.content %></p>
 				</div>
+				<br class="clear" />
+				<a href="javascript:;" class="add_comment">Comment</a>
 				
 
 				<br class="clear" />
@@ -39,7 +42,9 @@
 				<% _.each(listing.comments, function(comment) { %>
 				<div class="listing-arrow"></div>
 				<div class="listing-comment member-<%= comment.member_id %>">
+					<div class="indicator"><img src="/static/images/in.png" width="55" /></div>
 					<p><strong><%= comment.member %>: </strong><%= comment.content %></p>
+
 				</div>
 				<% }); %>
 			</div>

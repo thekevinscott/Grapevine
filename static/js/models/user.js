@@ -1,15 +1,23 @@
-define([
-  
+define([  
   'underscore',
   'backbone'
 ], function(_, Backbone){
   return Backbone.Model.extend({
-    initialize : function() {
-      
+    defaults : {
+      name : '',
+      friends : []
     },
-    promptColor: function() {
-      var cssColor = prompt("Please enter a CSS color:");
-      this.set({color: cssColor});
+    initialize : function(params) {
+      var user;
+      user = params;
+      Grapevine.setUser(user);
+      this.bind("change", function(params){
+        
+        user = $.extend(user,params.changedAttributes());
+        
+        Grapevine.setUser(user);
+      });
+      
     }
   });
 });

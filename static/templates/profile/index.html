@@ -1,14 +1,24 @@
 <div id="profile">
+	<form>	
 	
-	<div id="next-page">
-		<a href="#web">Continue to Your Web</a>
-	</div>
 	<div id="top-level-data">
 		<img src="http://graph.facebook.com/<%= user.get('id') %>/picture?type=large" alt="<%= user.get("name") %>" />
 		<h1><%= user.get("name") %></h1>
-		<p><%= user.get('location').name %></p>
+		<p><%= (user.get('location')) ? user.get('location').name : '' %></p>
 		<br class="clear" />
 	</div>
 	<div id="user-attributes">
 	</div>
+	<div id="user-manual">
+		<h2>Additional Information</h2>
+		<label>You can use this space to write a profile about yourself. Optional.</label>
+		<textarea name="manual-profile"></textarea>
+	</div>
+	<br class="clear" />
+	<div id="next-page">
+		<a href="#web" id="save-profile"><img width="185px" src="static/images/save-profile.png" /></a>
+	</div>
+	<br class="clear" />
+	</form>
 </div>
+<br class="clear" />

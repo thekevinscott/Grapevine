@@ -1,3 +1,149 @@
+
+        var friends_no_search = [
+                    {
+                        id : 2,
+                        name : 'Molly Shannon',
+                        image : '',
+                        
+                        
+                        friends : [
+                            {
+                                id : 1,
+                                name : 'Kevin Scott',
+                                image : 'http://graph.facebook.com/thekevinscott/picture?type=large',
+                                looking : true,
+                                attributes : {
+                                    location: 'Shadyside, Pennsylvania',
+                                    smoking: {
+                                        value: 0,
+                                        importance: 3
+                                    },
+                                    dog: {
+                                        value: 1,
+                                        importance: 5
+                                    },
+                                    questions : [
+                                        {
+                                            type: 'smoke',
+                                            label : 'This person does not smoke.',
+                                            question: 'Do you smoke?'
+                                        },
+                                        {
+                                            type: 'dogs',
+                                            label : 'This person has dogs.',
+                                            question: 'Do you like dogs?'
+                                        },
+                                        
+                                    ]
+                                },
+                            },
+                            {
+                                id : 11,
+                                name : 'Beth Anne Katz',
+                                image : 'http://graph.facebook.com/bethannekatz/picture?type=large',
+                                connections : [10],
+                                looking: true
+                            }
+                        ]
+                    },
+                    
+                    {
+                        id : 30,
+                        name : 'Rodney Dangerfield',
+                        image : '',
+                        friends : [
+                            {
+                                id : 4,
+                                name : 'Ralph Wiggum',
+                                image : '',
+                                friends : [
+                                    {
+                                        id: 7,
+                                        name : 'Barack Obama',
+                                        image : 'http://graph.facebook.com/barackobama/picture?type=large',
+                                        looking : true
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        id : 5,
+                        name : 'Santa Clause',
+                        image : '',
+                        friends : [
+                            {
+                                id : 6,
+                                name : 'Chris Ioffreda',
+                                image : 'http://graph.facebook.com/cioffreda/picture?type=large',
+                                looking: true
+                            }
+                        ]
+                    }
+                    ];
+
+        var friends_search = [
+                    {
+                        id : 2,
+                        name : 'Molly Shannon',
+                        image : '',
+                        
+                        
+                        friends : [
+                            {
+                                id : 1,
+                                name : 'Kevin Scott',
+                                image : 'http://graph.facebook.com/thekevinscott/picture?type=large',
+                                looking : true,
+                                attributes : {
+                                    location: 'Shadyside, Pennsylvania',
+                                    smoking: {
+                                        value: 0,
+                                        importance: 3
+                                    },
+                                    dog: {
+                                        value: 1,
+                                        importance: 5
+                                    },
+                                    questions : [
+                                        {
+                                            type: 'smoke',
+                                            label : 'This person does not smoke.',
+                                            question: 'Do you smoke?'
+                                        },
+                                        {
+                                            type: 'dogs',
+                                            label : 'This person has dogs.',
+                                            question: 'Do you like dogs?'
+                                        },
+                                        
+                                    ]
+                                },
+                            },
+                            {
+                                id : 11,
+                                name : 'Beth Anne Katz',
+                                image : 'http://graph.facebook.com/someone/picture?type=large',
+                                connections : [10],
+                                looking: true
+                            }
+                        ]
+                    },
+                    {
+                        id : 5,
+                        name : 'Santa Clause',
+                        image : '',
+                        friends : [
+                            {
+                                id : 6,
+                                name : 'Chris Ioffreda',
+                                image : 'http://graph.facebook.com/cioffreda/picture?type=large',
+                                looking: true
+                            }
+                        ]
+                    }
+                    ];
+
 define([
 
   'underscore',
@@ -6,9 +152,9 @@ define([
   
   
   'models/web',
-  
+  'models/user',
   'text!templates/web/index.html'
-], function( _, Backbone, Web, indexTemplate){
+], function( _, Backbone, Web, User, indexTemplate){
 
   var _view = Backbone.View.extend({
     el: null,
@@ -17,7 +163,7 @@ define([
     initialize: function(){
       //this.collection = userModel;
       //this.collection.bind("add", this.exampleBind);
-      
+
     },
     setupTextField : function() {
     	var text_field, form, val, text_field_p;
@@ -45,6 +191,13 @@ define([
     	$(form).submit(function(e){
     		e.preventDefault();
     		val = $(text_field).val();
+            /*
+            if (val) {
+                init(friends_search);
+            } else {
+                init(friends_no_search);
+            }
+            */
             $(text_field).blur();
             $(text_field).animate({opacity: 0, marginTop: 40});
             $(text_field_p).html(val);
@@ -68,6 +221,8 @@ define([
     },
     render: function(){
 
+      if (! Grapevine.getUser()) { window.location.hash = '#'; return;}
+      log('web render');
       var _this, data, access_token, duration;
       _this = this;
       duration = 200;
@@ -77,29 +232,33 @@ define([
       _this.el = _this.setupPage(page_title);
 
       var transition_amount = 70;
-
-      _this.el.css({
-      	left : 0, 
-      	opacity : 0, 
-      	width: (100-transition_amount)+'%', 
-      	height: (100-transition_amount)+'%', 
-      	marginTop: ((transition_amount/2))+'%',
-      	marginLeft: ((transition_amount/2))+'%'})
-      .animate({
-      	marginLeft : 0, marginTop : 0, width: '100%', height: '100%', opacity : '1'
-      }, { duration : duration, /*easing : 'easeOutQuad' ,*/ complete : function() {
-
-        
+      log(_this.el);
+      var css = {
+        left : 0, 
+        opacity : 0, 
+        width: (100-transition_amount)+'%', 
+        height: (100-transition_amount)+'%', 
+        marginTop: ((transition_amount/2))+'%',
+        marginLeft: ((transition_amount/2))+'%'};
+        log(css);
+      var animate_params = {marginLeft : 0, marginTop : 0, width: '100%', height: '100%', opacity : '1'};
+      log(animate_params);
+      _this.el.css(css).animate(animate_params, { duration : duration, /*easing : 'easeOutQuad' ,*/ complete : function() {
+        log('all ready');
         $('.slider').slider({
           max : 5,
           min : 1
         });
         setTimeout(function(){
+            _this.setupPaper();
+        },1000);
+        
+        setTimeout(function(){
             $('#sliders').animate({bottom: 0});
             $('#search-field-container').fadeIn();
             _this.setupTextField();
-        },1000);
-        _this.setupPaper();
+        },1500);
+        
 
       }});
       //$('#reel').append(_this.el);
@@ -125,100 +284,7 @@ define([
     		});
     	},1);
 
-    	var friends = [
-    				{
-                        id : 2,
-                        name : 'Molly Shannon',
-                        image : '',
-                        
-    					
-    					friends : [
-    						{
-                                id : 1,
-                                name : 'Kevin Scott',
-                                image : 'https://sphotos-a.xx.fbcdn.net/hphotos-ash4/304827_952344262311_105235805_n.jpg',
-                                looking : true,
-                                attributes : {
-                                    location: 'Shadyside, Pennsylvania',
-                                    smoking: {
-                                        value: 0,
-                                        importance: 3
-                                    },
-                                    dog: {
-                                        value: 1,
-                                        importance: 5
-                                    },
-                                    questions : [
-                                        {
-                                            type: 'smoke',
-                                            label : 'This person does not smoke.',
-                                            question: 'Do you smoke?'
-                                        },
-                                        {
-                                            type: 'dogs',
-                                            label : 'This person has dogs.',
-                                            question: 'Do you like dogs?'
-                                        },
-                                        
-                                    ]
-                                },
-    						},
-    						{ 
-    							id : 10,
-    							name : 'Horatio',
-    							connections : [11]
-    						},
-    						{
-    							id : 11,
-    							name : 'Thomas Jefferson',
-    							connections : [10]
-    						}
-    					]
-    				},
-    				
-    				{
-    					id : 30,
-    					name : 'Rodney Dangerfield',
-    					image : '',
-    					friends : [
-    						{
-    							id : 4,
-    							name : 'Ralph Wiggum',
-    							image : '',
-    							friends : [
-    								{
-    									id: 7,
-    									name : 'Barack Obama',
-    									image : '',
-                                        looking : true
-    								}
-    							]
-    						}
-    					]
-    				},
-    				{
-    					id : 5,
-    					name : 'Santa Clause',
-    					image : '',
-    					friends : [
-    						{
-    							id : 6,
-    							name : 'Mickey Mouse',
-    							image : ''
-    						}
-    					]
-    				},
-    				{
-    					id : 8,
-    					name : 'Peter Griffin',
 
-    				},
-
-    				{
-    					id : 9,
-    					name : 'Thoreau'
-    				}
-    				];
     	// defined vars are uppercase
     	// classes start with uppercase letters
     	// variables have underscores
@@ -236,7 +302,7 @@ define([
     	DEBUG = true;
     	CELL_CREATE_TIME = 1000;
     	CELL_DELAY_CREATE_TIME = 40;
-    	CELL_DISTANCE = 150;
+    	CELL_DISTANCE = 110;
     	CELL_RADIUS = 7;
     	CELL_RADIUS_SCALE = 1.4;
     	CELL_NOISE = 20;
@@ -266,8 +332,11 @@ define([
     	}
 
     	var Line = function(cells) {
-    		var line, cell_a, cell_b, cell_a_position, cell_b_position;
 
+    		var line, cell_a, cell_b, cell_a_position, cell_b_position;
+            log(cell_friends);
+            log(cells);
+            
     		cell_a = cell_friends[cells.shift()];
     		cell_b = cell_friends[cells.shift()];
 
@@ -276,7 +345,9 @@ define([
     		
     		line = new paper.Path();
     		line.strokeColor = '#000000';
-
+            if (! cell_a || !cell_b) {
+                return;
+            }
     		cell_a_position = cell_a.getPosition();
     		cell_b_position = cell_b.getPosition();
 
@@ -340,6 +411,7 @@ define([
     			cells.sort();
     			var key = cells[0]+'_'+cells[1];
     			if (! lines[key]) {
+
     				lines[key] = new Line(cells) ;
     			}
     		}
@@ -440,6 +512,7 @@ define([
                 log(group_window);
                 if (! group_window) {
                     group_window = $('#group');
+
                 }
                 var info_window = $('#info-window-'+id);
                 var group_content = $('#group-content');
@@ -465,7 +538,9 @@ define([
                 
             }
     		var infoWindow = function(point) {
-
+                
+                point.x = point.event.event.clientX;
+                point.y = point.event.event.clientY;
     			var top, left, info_window, amount_to_move, time_to_create, id;
     			id = point.id;
     			
@@ -474,7 +549,14 @@ define([
 
     			amount_to_move = 8;
     			time_to_create = 400;
-    			top = point.y - info_window.height() + 20;
+
+                top = point.y - info_window.height() + 20;
+                
+                if (top <= 90) {
+                
+                    top = point.y + (info_window.height()*2) + 20;    
+                }
+    			
     			left = point.x - (info_window.width()/2);
     			info_window.addClass('show');
     			info_window.css({
@@ -483,7 +565,7 @@ define([
     				opacity : 'show', top: top - amount_to_move
     			},{ duration :time_to_create/*, easing: 'easeOutQuad'*/});
 
-    			info_window.html('<img width="50" src="http://graph.facebook.com/'+(Math.round(Math.random()*1000000)+100000)+'/picture" /><h1>'+name+'</h1><p class="location">'+getAttributes('location')+'</p><p>Likes long walks on the shore.</p>');
+    			info_window.html('<img class="info-window-profile" width="50" src="'+image+'" /><h1>'+name+'</h1><p class="location">'+getAttributes('location')+'</p>');
     			
     			info_window.width(200);
     		};
@@ -500,19 +582,26 @@ define([
 					$(this).remove();
 				});	
     		};
-    		var expandInfoWindow = function(info_window) {
+    		var expandInfoWindow = function(info_window,event) {
+                
     			var width = info_window.width();
     			var height = info_window.height();
 
     			var target_width = 300;
-    			var target_height = 200;
+    			var target_height = 100;
+                var margin_top;
+                if (event.event.clientY - target_height < 30) {
+                    margin_top = target_height - 70;
+                } else {
+                    margin_top = -1 * target_height;
+                }
     			$(info_window).animate({
     				width: target_width,
     				height: target_height,
     				marginLeft : -1 * target_width / 2 + 50,
-    				marginTop : -1 * target_height,
+    				marginTop : margin_top
     			},200);
-    			$(info_window).append('<a href="javascript:;" class="add">Add this person</a>');
+    			$(info_window).append('<a href="javascript:;" class="add"><img src="/static/images/add-to-vine.png" width="185" /></a><br class="clear" />');
                 $(info_window).find('.add').click(function(e){
 
                     var html = $('<div id="warning" />');
@@ -538,10 +627,11 @@ define([
                                 '+button+'\
                                 <br class="clear" />\
                                 </div>';
-                            html.append(question_html+'<br class="clear" />');
+                            html.append(question_html);
                             question_count++;
 
                         });
+                        html.append('<br class="clear" />');
                         
                         $.fancybox.open( html );
                         $('#warning').find('.button').click(function(){
@@ -580,7 +670,10 @@ define([
     			});
     			
     			$.each(all_connections,function(i,connection){
-    				cell_friends[connection].shake({shake : shake, amount : amount, shaker : id});
+                    if (cell_friends[connection]) {
+                        cell_friends[connection].shake({shake : shake, amount : amount, shaker : id});    
+                    }
+    				
     			});
     			
     		}
@@ -701,6 +794,7 @@ define([
     			
     			if (connections && connections.length) {
     				$.each(connections,function(i,connection){
+                        
     					addLine([id, connection]);
 
     	    			
@@ -737,9 +831,10 @@ define([
     		
     			
     			path.onMouseEnter = function(event) {
+                    log(id);
     				var info_window = $('#info-window-'+id);
     				if (! info_window.length) {
-    					infoWindow({ id : id, x: x, y : y});
+    					infoWindow({ id : id, x: x, y : y, event: event});
     					
     					/*var cell_noise_variance = 2;
     					var random_x = x + (Math.random() * cell_noise_variance) - cell_noise_variance / 2;
@@ -748,7 +843,10 @@ define([
     					var random_y = y;
     					var tween = new TWEEN.Tween( { radius : current_radius, x : x, y : y }).to( { radius : radius*CELL_RADIUS_SCALE, x : random_x, y : random_y }, CELL_CREATE_TIME/2 )
     					.easing( TWEEN.Easing.Elastic.Out ).onUpdate( function () {update({path : path, radius : this.radius, x : this.x, y : this.y}); }).start();
-    					$('body').css('cursor', 'pointer');
+                        if (id!= 0) {
+                            $('body').css('cursor', 'pointer');    
+                        }
+    					
     					hovering = true;
     					shakeTheWeb({shake : true});
     				}
@@ -773,29 +871,30 @@ define([
     				}
     				
     			}
-    			path.onClick = function () {
-                    
+    			path.onClick = function (event) {
+                    if (id!=0) {
+                        var info_window = $('#info-window-'+id);
+                        info_window.addClass('remain');
+                        expandInfoWindow(info_window,event);
+                        $('.info-window').each(function(){
+                            
+                            if ($(this).attr('id') != 'info-window-'+id) {
+                                
+                                var this_id = $(this).attr('id').split('-').pop();
+                                log(this_id);
+                                /*
+                                var tween = new TWEEN.Tween( { radius : current_radius, x : x, y : y }).to( { radius : radius, x : target_x, y : target_y }, CELL_CREATE_TIME/2 )
+                                .easing( TWEEN.Easing.Elastic.Out ).onUpdate( function () {update({path : path, radius : this.radius, x : this.x, y : this.y}); }).start();
+                                $('body').css('cursor', 'inherit');
+                                hovering = false;
+                                shakeTheWeb({ shake : false });*/
 
-    				var info_window = $('#info-window-'+id);
-    				info_window.addClass('remain');
-    				expandInfoWindow(info_window);
-    				$('.info-window').each(function(){
-    					
-    					if ($(this).attr('id') != 'info-window-'+id) {
-    						
-    						var this_id = $(this).attr('id').split('-').pop();
-    						log(this_id);
-    						/*
-    						var tween = new TWEEN.Tween( { radius : current_radius, x : x, y : y }).to( { radius : radius, x : target_x, y : target_y }, CELL_CREATE_TIME/2 )
-    						.easing( TWEEN.Easing.Elastic.Out ).onUpdate( function () {update({path : path, radius : this.radius, x : this.x, y : this.y}); }).start();
-    						$('body').css('cursor', 'inherit');
-    						hovering = false;
-    						shakeTheWeb({ shake : false });*/
-
-    						clearInfoWindow(this_id);
-    					}
-    				});
-    				//infoWindow();
+                                clearInfoWindow(this_id);
+                            }
+                        });
+                        //infoWindow();
+                    }
+    				
     	        }
 
     					
@@ -853,8 +952,16 @@ define([
     	}
         paper.tool.onMouseDrag = function(event) {
             $('body').css('cursor', 'pointer');
-            log(stage);
+            
             stage.position = new paper.Point(stage.position.x + event.delta.x, stage.position.y + event.delta.y);
+            
+            $('.info-window').each(function(){
+                var top = parseInt($(this).css('top'));
+                var left = parseInt($(this).css('left'));
+                var new_css = {top : (top + event.delta.y) + 'px', left : (left + event.delta.x) + 'px'};
+                log(new_css);
+                $(this).css(new_css);
+            })
             //log(event);
         };
 
@@ -936,7 +1043,7 @@ define([
     				
     				
     				cell.x = paper.view.center.x + (distance * depth) * Math.cos(angle) + (Math.random()*CELL_NOISE);
-    				cell.y = paper.view.center.y + (distance * depth) * Math.sin(angle) + (Math.random()*CELL_NOISE);
+    				cell.y = paper.view.center.y - 100 + (distance * depth) * Math.sin(angle) + (Math.random()*CELL_NOISE);
     				cell.radius = radius;
 
     				cell.starting_x = starting_position.x;
@@ -981,67 +1088,74 @@ define([
     		
     	}
 
+        var init = function(friends_to_use) {
+            objects = [];
+                /*
+                *       init
+                */ 
 
-    	/*
-    	* 		init
-    	*/ 
-
-    		setInterval(function(){
-    			TWEEN.update();
-    		},20);
-
-
-    		// run
-
-    		setTimeout(function(){
-                var center_x = paper.view.center.x;
-                var center_y = paper.view.center.y *0.7;
-    			
-
-    			cell_friends[0] = new Cell({
-                    children: friends, 
-                    x : center_x, 
-                    y : center_y,
-                    radius: CELL_RADIUS*CELL_RADIUS_SCALE, 
-                    fill_color : '#6eb3dd', 
-                    id: 0, 
-                    name: 'You'
-                });	
-    			cells.push(cell_friends[0]);
-    			createCells({
-                    parent : 0, 
-                    friends : friends, 
-                    initial_angle : INITIAL_ANGLE_OFFSET, 
-                    starting_position : {
-                        x : center_x, 
-                        y : center_y,
-                    }
-                });
-
-    			
-    			var copy_queued_cells = [];
-    			$.each(queued_cells,function(i,queue){
-    				queue.sort(function() {return 0.5 - Math.random()}) //Array elements now scrambled	
-    				$.each(queue, function(j,cell) {
-    					copy_queued_cells.push(cell);
-    				});
-    			});
-    			copy_queued_cells.reverse();
-    			$.each(copy_queued_cells,function(i,cell){
-    				var cell_id = cell.id;
-    				cell = new Cell(cell);
-
-    				cells.push(cell);
-    				cell_friends[cell_id] = cell;
-    			});
-    			
-
-    			
-
-    			
+                    setInterval(function(){
+                        TWEEN.update();
+                    },20);
 
 
-    		},200);
+                    // run
+
+                    setTimeout(function(){
+                        var center_x = paper.view.center.x;
+                        var center_y = paper.view.center.y *0.7;
+                        var user = Grapevine.getUser();
+                        log('what is user');
+                        log(user);
+                        cell_friends[0] = new Cell({
+                            children: friends_to_use, 
+                            x : center_x, 
+                            y : center_y - 100,
+                            radius: CELL_RADIUS*CELL_RADIUS_SCALE, 
+                            fill_color : '#6eb3dd', 
+                            id: 0, 
+                            name: 'You',
+                            image : 'http://graph.facebook.com/'+user.id+'/picture?type=large'
+                        }); 
+                        cells.push(cell_friends[0]);
+                        
+                        createCells({
+                            parent : 0, 
+                            friends : friends_to_use, 
+                            initial_angle : INITIAL_ANGLE_OFFSET, 
+                            starting_position : {
+                                x : center_x, 
+                                y : center_y,
+                            }
+                        });
+
+                        
+                        var copy_queued_cells = [];
+                        $.each(queued_cells,function(i,queue){
+                            queue.sort(function() {return 0.5 - Math.random()}) //Array elements now scrambled  
+                            $.each(queue, function(j,cell) {
+                                copy_queued_cells.push(cell);
+                            });
+                        });
+                        copy_queued_cells.reverse();
+                        $.each(copy_queued_cells,function(i,cell){
+                            var cell_id = cell.id;
+                            cell = new Cell(cell);
+
+                            cells.push(cell);
+                            cell_friends[cell_id] = cell;
+                        });
+                        
+
+                        
+
+                        
+
+
+                    },200);
+        };
+
+        init(friends_no_search);
 
     		
 

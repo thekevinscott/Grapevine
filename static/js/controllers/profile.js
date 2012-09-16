@@ -34,8 +34,18 @@ define([
       // remove clicked box from the document tree
 
       if ($(el)[0].tagName != 'LI' ) { el = $(el).parents('li'); }
+      
       el.css({height: $(el).height(), overflow: 'hidden' }).animate({width: 0, opacity: 0, margin: 0, padding: 0},100, function(data){
+        
+        var profile_container = $(this).parents('.profile-container');
+        
+        if (profile_container.find('ul li').length <= 1) {
+          $(profile_container).slideUp(function(){
+            $(this).remove();
+          });
+        }
         $(this).remove();
+        
       });
       $('.poof').css({
         left: (el_offset.left + xOffset)+ 'px',
@@ -86,7 +96,7 @@ define([
       _(val).each(function(attribute_value){
         switch(key) {
           default :
-            attr_div_ul.append('<li>'+attribute_value.name+'<a href="javascript:;" class="remove"></a></li>');
+            attr_div_ul.append('<li rel="'+attribute_value.name+'">'+attribute_value.name+'<a href="javascript:;" class="remove"></a></li>');
 
           break;
         }
@@ -167,14 +177,38 @@ define([
       FB.api('/me', function(data) {
         if (data) {
           if (callback) { callback(); }
+          setTimeout(function(){
+            Grapevine.setHelp({content : 'We\'ve pulled in some of your profile details from Facebook. You can remove anything you don\'t want to appear by clicking the remove button next to each icon. Or, if you want to remove an entire category, click Remove All.', top: 300});
+          },500);
+          
+          if (! data.name) { data.name = ''; }
           _this.user = new User(data);
-          _this.user.bind("change",_this.userChange, _this);
+           _this.user.bind("change",_this.userChange, _this);
           _this.template_data = {
             user: _this.user,
             _: _
           };
+          
+
           compiled_template = _.template( indexTemplate, _this.template_data );
+
           _this.el.html(compiled_template);
+
+          $('#save-profile').click(function(e){
+            
+            Grapevine.setUser({manual_profile : $('textarea[name=manual_profile]').val()});
+            log(Grapevine.getUser());
+            Grapevine.loading();
+            
+            Grapevine.request({
+              url : 'user/save',
+              data : Grapevine.getUser(),
+              success : function(data) {
+
+              }
+            });
+            
+          });
           _this.el = _this.el.find('#profile');
           _this.user_attributes = _this.el.find('#user-attributes');
           var next_page = _this.el.find('#next-page');
@@ -214,6 +248,7 @@ define([
           });
         }
       });
+      
       
       
 

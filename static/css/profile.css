@@ -1,6 +1,6 @@
 #profile {
 	width: 920px;
-	margin: 40px auto;
+	margin: 40px auto 0 auto;
 	min-height: 500px;
 	background: #eee url(../images/eee_noise.png);
 	padding: 20px;
@@ -39,7 +39,7 @@
 #profile #user-attributes .remove_all {
 	float: right;
 	margin-left: 20px;
-	margin-bottom: 30px;
+	margin-bottom: 35px;
 }
 #profile #user-attributes ul li .remove {
 	background: url(../images/remove.gif) no-repeat;
@@ -63,9 +63,22 @@
 #next-page {
 	display: none;
 	
-	position: absolute;
+	
 	right: 40px;
 	padding-top: 40px;
 	text-align: right;
 	font-size: 20px;
+}
+#next-page .button { 
+	color: white;
+	margin-bottom: 40px;
+	padding: 5px 20px;
+}
+textarea[name=manual-profile] {
+	width: 100%;
+	padding: 5px;
+	font-size: 14px;
+	clear: both;
+	margin-top: 20px;
+	height: 80px;
 }

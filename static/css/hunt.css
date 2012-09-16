@@ -52,12 +52,12 @@
 }
 .listing-container .listing-comments .listing-comment {
 	background: #ddd url(../images/ddd_noise.png);
-	padding: 20px;
+	padding: 10px;
 	position: relative;
 }
 .listing-container .listing-comments .listing-comment p {
 	margin: 0;
-	padding: 0;
+	padding: 10px;
 }
 .listing-container .listing-arrow {
 	background: url(../images/ddd_arrow.png);
@@ -66,4 +66,25 @@
 	height: 30px;
 	margin-left: 40px;
 	display: block;
+}
+.new-comment-container textarea{
+	height: 50px;
+ 	
+ 	border: 1px solid #CCC;
+ 	width: 400px;
+ 	padding: 5px;
+ 	font-size: 14px;
+}
+.new-comment-container input[type=submit] {
+	clear: both;
+}
+.in {
+	float: right;
+}
+.indicator {
+	float: right;
+}
+.everyones-in {
+	float: right;
+	margin-top: -20px;
 }

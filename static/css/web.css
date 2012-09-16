@@ -12,6 +12,7 @@
 
 
 .info-window {
+	overflow: hidden;
 	display: none;
 	top: 0;
 	left: 0;
@@ -64,15 +65,12 @@
 	margin-right: 10px;
 }
 .info-window .add {
-	background: url(../images/add.png) no-repeat right 0;
 	
-	height: 16px;
-	position: absolute;
-	bottom: 10px;
-	right: 10px;
-	padding-right: 24px;
-	text-decoration: none;
-	color: blue;
+	float: right;
+}
+.info-window .add img {
+	padding-right: 0;
+	margin-right: 0;
 }
 
 #search-field-container {
@@ -191,7 +189,7 @@
 	width: 350px;
 	text-shadow: 0 1px 0 #FFF;
 	padding: 20px;
-	height: 400px;
+	height: 215px;
 	position: relative;
 }
 #warning label {
