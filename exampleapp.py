@@ -212,6 +212,10 @@ def get_channel():
 def close():
     return render_template('close.html')
 
+@app.route('/api/user/save', methods=['GET', 'POST'])
+def get_save():
+    return render_template('save.html')
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     if app.config.get('FB_APP_ID') and app.config.get('FB_APP_SECRET'):
