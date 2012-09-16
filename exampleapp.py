@@ -214,7 +214,7 @@ def close():
 
 @app.route('/api/user/save', methods=['GET', 'POST'])
 def get_save():
-     return json.dumps(request.post)
+     return json.dumps(request.form)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
