@@ -214,7 +214,7 @@ def close():
 
 @app.route('/api/user/save', methods=['GET', 'POST'])
 def get_save():
-    return render_template('save.html')
+     return jsonify(username='hello')
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
